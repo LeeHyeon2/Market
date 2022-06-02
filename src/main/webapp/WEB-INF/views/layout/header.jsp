@@ -16,14 +16,14 @@
     <div class="container d-flex flex-wrap">
         <ul class="nav me-auto">
             <li class="nav-item"><a href="/" class="nav-link link-dark px-2 active" aria-current="page">Home</a></li>
-            <li class="nav-item"><a href="#" class="nav-link link-dark px-2">Buy</a></li>
-            <li class="nav-item"><a href="#" class="nav-link link-dark px-2">Sell</a></li>
+            <li class="nav-item"><a href="#" class="nav-link link-dark px-2">구매</a></li>
+            <li class="nav-item"><a href="#" class="nav-link link-dark px-2">판매</a></li>
             <li class="nav-item"><a href="#" class="nav-link link-dark px-2">x</a></li>
             <li class="nav-item"><a href="#" class="nav-link link-dark px-2">x</a></li>
         </ul>
         <ul class="nav">
-            <li class="nav-item"><a href="#" class="nav-link link-dark px-2">Login</a></li>
-            <li class="nav-item"><a href="#" class="nav-link link-dark px-2">Sing up</a></li>
+            <li class="nav-item"><a href="#" class="nav-link link-dark px-2">로그인</a></li>
+            <li class="nav-item"><a href="/member/save" class="nav-link link-dark px-2">회원가입</a></li>
         </ul>
     </div>
 </nav>
@@ -34,7 +34,7 @@
             <span class="fs-4">Market</span>
         </a>
         <form class="col-12 col-lg-auto mb-3 mb-lg-0" role="search">
-            <input type="search" class="form-control" placeholder="Search..." aria-label="Search">
+            <input type="search" class="form-control" placeholder="물품 검색" aria-label="Search">
         </form>
     </div>
 </header>

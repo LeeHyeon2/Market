@@ -4,7 +4,14 @@
 
 
 <mapper namespace="Member">
+    <insert id="save" parameterType="member">
+        insert into market_member (memberName,memberId,memberPassword,memberEmail1,memberEmail2,memberPost,memberAddress1,memberAddress2)
+        values (#{memberName},#{memberId},#{memberPassword},#{memberEmail1},#{memberEmail2},#{memberPost},#{memberAddress1},#{memberAddress2})
+    </insert>
 
+    <select id="duplicate" parameterType="String" resultType="String">
+        select memberId from market_member where memberId = #{memberId}
+    </select>
 </mapper>
 
 
