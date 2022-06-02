@@ -110,4 +110,11 @@ public class MemberController {
         model.addAttribute("paging",paging);
         return "/member/findAll";
     }
+
+    @GetMapping("/detail")
+    public String findById(@RequestParam("id") int id , Model model){
+        MemberDTO memberDTO = memberService.findById(id);
+        model.addAttribute("member",memberDTO);
+        return "/member/detail";
+    }
 }
