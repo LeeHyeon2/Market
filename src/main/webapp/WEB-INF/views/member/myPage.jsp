@@ -248,7 +248,7 @@
     <div class="listContainer">
         <a href="/member/update" class="item">
             <div class="icon">ii</div>
-            <div class="text">회원정보 수정</div>
+            <div class="text">회원정보 수정/탈퇴</div>
             <div class="right"> > </div>
         </a>
         <a href="#" class="item">

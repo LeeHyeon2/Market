@@ -86,7 +86,8 @@
                 <span></span>
 
 
-                <input type="button" class="btn btn-primary btn-lg btn-block" value="수정완료" onclick="save()">
+                <input type="button" class="btn btn-primary btn-lg btn-block" value="수정" onclick="save()">
+                <input type="button" class="btn btn-primary btn-lg btn-block" value="회원탈퇴" onclick="delete1()">
             </form>
         </div>
     </div>
@@ -178,6 +179,15 @@
 
     function login() {
         location.href = "/member/login";
+    }
+    function delete1(){
+        let password = document.getElementById("password").value;
+        if(password == '${memberDTO.memberPassword}'){
+            alert("회원탈퇴 되었습니다.")
+            location.href = "/member/delete"
+        }else{
+            alert("비밀번호가 일치하지 않습니다!!")
+        }
     }
 </script>
 </html>

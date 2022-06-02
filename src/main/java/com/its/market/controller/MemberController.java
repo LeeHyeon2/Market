@@ -86,4 +86,11 @@ public class MemberController {
         memberService.update(memberDTO);
         return "/member/myPage";
     }
+
+    @GetMapping("/delete")
+    public String delete(HttpSession session){
+        memberService.delete(session.getAttribute("loginId"));
+        session.invalidate();
+        return "/index";
+    }
 }

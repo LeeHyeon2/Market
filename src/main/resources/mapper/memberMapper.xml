@@ -24,6 +24,10 @@
     <update id="update" parameterType="member">
         update market_member set memberEmail1 = #{memberEmail1} , memberEmail2 = #{memberEmail2} , memberPost = #{memberPost} , memberAddress1 = #{memberAddress1} , memberAddress2 = #{memberAddress2} where memberId= #{memberId}
     </update>
+
+    <delete id="delete" parameterType="int">
+        delete from market_member where id = #{id}
+    </delete>
 </mapper>
 
 
