@@ -68,4 +68,22 @@ public class MemberController {
         session.invalidate();
         return "/index";
     }
+
+    @GetMapping("/myPage")
+    public String myPageForm(){
+        return "/member/myPage";
+    }
+
+    @GetMapping("/update")
+    public String updateForm(Model model,HttpSession session){
+        MemberDTO memberDTO = memberService.findById(session.getAttribute("loginId"));
+        model.addAttribute("memberDTO",memberDTO);
+        return "/member/update";
+    }
+
+    @PostMapping("/update")
+    public String update(@ModelAttribute MemberDTO memberDTO){
+        memberService.update(memberDTO);
+        return "/member/myPage";
+    }
 }

@@ -13,7 +13,12 @@
 </head>
 <body>
 <c:if test="${sessionScope.loginMemberId ne null}">
-    <jsp:include page="layout/loginHeader.jsp" flush="false"></jsp:include>
+    <c:if test="${sessionScope.loginMemberId eq 'admin'}">
+        <jsp:include page="layout/adminHeader.jsp" flush="false"></jsp:include>
+    </c:if>
+    <c:if test="${sessionScope.loginMemberId ne 'admin'}">
+        <jsp:include page="layout/loginHeader.jsp" flush="false"></jsp:include>
+    </c:if>
 </c:if>
 <c:if test="${sessionScope.loginMemberId eq null}">
     <jsp:include page="layout/header.jsp" flush="false"></jsp:include>

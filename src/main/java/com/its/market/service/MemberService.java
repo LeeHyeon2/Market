@@ -27,4 +27,12 @@ public class MemberService {
     public MemberDTO login(MemberDTO memberDTO) {
         return memberRepository.login(memberDTO);
     }
+
+    public MemberDTO findById(Object loginId) {
+        return memberRepository.findById(loginId);
+    }
+
+    public void update(MemberDTO memberDTO) {
+        memberRepository.update(memberDTO);
+    }
 }

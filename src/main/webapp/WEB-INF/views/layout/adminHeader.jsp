@@ -18,7 +18,7 @@
             <li class="nav-item"><a href="/" class="nav-link link-dark px-2 active" aria-current="page">Home</a></li>
             <li class="nav-item"><a href="#" class="nav-link link-dark px-2">구매</a></li>
             <li class="nav-item"><a href="#" class="nav-link link-dark px-2">판매</a></li>
-            <li class="nav-item"><a href="#" class="nav-link link-dark px-2">x</a></li>
+            <li class="nav-item"><a href="#" class="nav-link link-dark px-2">회원목록</a></li>
             <li class="nav-item"><a href="#" class="nav-link link-dark px-2">x</a></li>
         </ul>
         <ul class="nav">

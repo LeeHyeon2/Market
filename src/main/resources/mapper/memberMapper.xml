@@ -17,6 +17,13 @@
         select * from market_member where memberId = #{memberId} and memberPassword = #{memberPassword}
     </select>
 
+    <select id="findById" parameterType="int" resultType="member">
+        select * from market_member where id = #{id}
+    </select>
+
+    <update id="update" parameterType="member">
+        update market_member set memberEmail1 = #{memberEmail1} , memberEmail2 = #{memberEmail2} , memberPost = #{memberPost} , memberAddress1 = #{memberAddress1} , memberAddress2 = #{memberAddress2} where memberId= #{memberId}
+    </update>
 </mapper>
 
 
