@@ -23,4 +23,8 @@ public class MemberService {
             return "no";
         }
     }
+
+    public MemberDTO login(MemberDTO memberDTO) {
+        return memberRepository.login(memberDTO);
+    }
 }

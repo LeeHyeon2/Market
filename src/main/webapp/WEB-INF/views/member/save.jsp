@@ -41,11 +41,11 @@
       }
     </style>
   </head>
-
   <body>
   <div class="container">
-    <div class="input-form-backgroud row">
+    <div class="input-form-background row">
       <div class="input-form col-md-12 mx-auto">
+        <a href="/"><h3 class="mb-3">Market</h3></a>
         <h4 class="mb-3">회원가입</h4>
         <form class="validation-form" novalidate action="/member/save" method="post" name="saveForm">
           <div class="row">
@@ -115,6 +115,7 @@
 
 
           <input type="button" class="btn btn-primary btn-lg btn-block" value="가입완료" onclick="save()">
+          <input type="button" class="btn btn-primary btn-lg btn-block" value="로그인" onclick="login()">
         </form>
       </div>
     </div>
@@ -226,6 +227,7 @@
       }
 
       if(saveCheck == 1 && memberName!="" && passwordCheck!= "" && password != "" && email != "" && post != "" && email2 != ""){
+        alert("가입이 완료됐습니다!")
         saveForm.submit();
       }
     }
@@ -254,6 +256,9 @@
           alert("실패")
         }
       })
+    }
+    function login() {
+      location.href = "/member/login";
     }
   </script>
   </body>

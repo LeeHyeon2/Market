@@ -22,7 +22,7 @@
             <li class="nav-item"><a href="#" class="nav-link link-dark px-2">x</a></li>
         </ul>
         <ul class="nav">
-            <li class="nav-item"><a href="#" class="nav-link link-dark px-2">로그인</a></li>
+            <li class="nav-item"><a href="/member/login" class="nav-link link-dark px-2">로그인</a></li>
             <li class="nav-item"><a href="/member/save" class="nav-link link-dark px-2">회원가입</a></li>
         </ul>
     </div>
