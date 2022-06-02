@@ -1,6 +1,7 @@
 package com.its.market.controller;
 
 import com.its.market.dto.MemberDTO;
+import com.its.market.dto.PageDTO;
 import com.its.market.service.MemberService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -8,6 +9,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpSession;
+import java.util.List;
 
 @Controller
 @RequestMapping("/member")
@@ -92,5 +94,20 @@ public class MemberController {
         memberService.delete(session.getAttribute("loginId"));
         session.invalidate();
         return "/index";
+    }
+
+    @GetMapping("/delete1")
+    public String delete1(@RequestParam("id") int id){
+        memberService.delete(id);
+        return "redirect:/member/findAll";
+    }
+
+    @GetMapping("/findAll")
+    public String findAll(@RequestParam(value="page", required=false, defaultValue="1") int page, Model model){
+        List<MemberDTO> memberDTOList = memberService.findAll(page);
+        PageDTO paging = memberService.paging(page);
+        model.addAttribute("memberList",memberDTOList);
+        model.addAttribute("paging",paging);
+        return "/member/findAll";
     }
 }

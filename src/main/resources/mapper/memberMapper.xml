@@ -28,6 +28,18 @@
     <delete id="delete" parameterType="int">
         delete from market_member where id = #{id}
     </delete>
+
+    <select id="findAll" resultType="member">
+        select * from market_member
+    </select>
+
+    <select id="pagingList" parameterType="java.util.HashMap" resultType="member">
+        select * from market_member order by id desc limit #{start}, #{limit}
+    </select>
+
+    <select id="count" resultType="int">
+        select count(id) from market_member
+    </select>
 </mapper>
 
 
