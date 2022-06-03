@@ -18,4 +18,5 @@ public class BoardDTO {
     MultipartFile boardFile1; // saveFile.jsp 에서 컨트롤러로 넘어올 때 파일을 담아오는 용도
     String boardFile;
     String boardProfile;
+    int boardHits;
 }

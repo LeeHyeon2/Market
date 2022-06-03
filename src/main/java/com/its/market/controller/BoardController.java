@@ -5,10 +5,7 @@ import com.its.market.service.BoardService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
@@ -25,6 +22,7 @@ public class BoardController {
         List<BoardDTO> boardDTOS = boardService.findByList(session.getAttribute("loginMemberId"));
         int count1 = 0;
         int count2 = 0;
+        int count3 = 0;
         for(int i = 0 ; i<boardDTOS.size() ; i++){
             System.out.println(boardDTOS.get(i).getBoardStatus());
             if(boardDTOS.get(i).getBoardStatus().equals("판매중")){
@@ -33,9 +31,13 @@ public class BoardController {
             if(boardDTOS.get(i).getBoardStatus().equals("판매완료")) {
                 count2++;
             }
+            if(boardDTOS.get(i).getBoardStatus().equals("거래중")) {
+                count3++;
+            }
         }
         model.addAttribute("ing",count1);
         model.addAttribute("end",count2);
+        model.addAttribute("selling",count3);
         return "/board/myPage";
     }
 
@@ -51,5 +53,11 @@ public class BoardController {
         return "redirect:/board/myPage";
     }
 
-
+    @GetMapping("/sale")
+    public String sale(HttpSession session,Model model,@RequestParam("id") int id){
+        List<BoardDTO> boardDTOS = boardService.findByList(session.getAttribute("loginMemberId"));
+        model.addAttribute("id",id);
+        model.addAttribute("boardDTO",boardDTOS);
+        return "/board/saleList";
+    }
 }

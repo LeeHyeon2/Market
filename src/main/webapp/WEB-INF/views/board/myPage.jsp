@@ -165,25 +165,32 @@
                     <div class="icon">  </div>
                 </div>
                 <div class="item">
+                <div>
+                    <div class="number">${selling}</div>
+                    <div class="text">거래중</div>
+                </div>
+                <div class="icon">  </div>
+            </div>
+                <div class="item">
                 </div>
 
             </div>
 
         </div>
         <div class="listContainer">
-            <a href="#" class="item">
+            <a href="/board/sale?id=1" class="item">
                 <div class="icon">ii</div>
                 <div class="text">판매중 목록</div>
                 <div class="right"> > </div>
             </a>
-            <a href="#" class="item">
+            <a href="/board/sale?id=2" class="item">
                 <div class="icon">ii</div>
                 <div class="text">판매완료 목록</div>
                 <div class="right"> > </div>
             </a>
             <a href="#" class="item">
                 <div class="icon">ii</div>
-                <div class="text">거래신청??</div>
+                <div class="text">거래중 목록</div>
                 <div class="right"> > </div>
             </a>
         </div>
