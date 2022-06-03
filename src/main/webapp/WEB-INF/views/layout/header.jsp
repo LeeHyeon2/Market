@@ -16,10 +16,7 @@
     <div class="container d-flex flex-wrap">
         <ul class="nav me-auto">
             <li class="nav-item"><a href="/" class="nav-link link-dark px-2 active" aria-current="page">Home</a></li>
-            <li class="nav-item"><a href="#" class="nav-link link-dark px-2">구매</a></li>
-            <li class="nav-item"><a href="#" class="nav-link link-dark px-2">판매</a></li>
-            <li class="nav-item"><a href="#" class="nav-link link-dark px-2">x</a></li>
-            <li class="nav-item"><a href="#" class="nav-link link-dark px-2">x</a></li>
+            <li class="nav-item"><a href="#" class="nav-link link-dark px-2">구매하기</a></li>
         </ul>
         <ul class="nav">
             <li class="nav-item"><a href="/member/login" class="nav-link link-dark px-2">로그인</a></li>

@@ -23,5 +23,6 @@
 <c:if test="${sessionScope.loginMemberId eq null}">
     <jsp:include page="layout/header.jsp" flush="false"></jsp:include>
 </c:if>
+<a href="/board/save">123</a>
 </body>
 </html>

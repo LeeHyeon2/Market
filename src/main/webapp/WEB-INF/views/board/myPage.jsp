@@ -1,8 +1,8 @@
 <%--
   Created by IntelliJ IDEA.
   User: GRAM
-  Date: 2022-06-02
-  Time: 오후 2:51
+  Date: 2022-06-03
+  Time: 오전 9:28
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
@@ -10,6 +10,9 @@
 <html>
 <head>
     <style>
+        a {
+            text-decoration: none;
+        }
         body{
             padding: 0;
             margin: 0;
@@ -100,35 +103,34 @@
             width: 16px;
             height: 16px;
         }
+            /*=================== 주문목록 ~ 찜한상품 리스트 ==================*/
+            .listContainer{
+                padding: 0;
+                background-color: #ffffff;
+                margin-bottom: 10px;
+            }
+            .listContainer .item{
+                display: flex;
+                align-items: center;
+                padding: 16px;
+                color: black;
+                text-decoration: none;
+                height: 56px;
+                box-sizing: border-box;
+            }
+            .listContainer .icon{
+                margin-right: 14px;
+            }
+            .listContainer .text{
+                font-size: 16px;
+                position: relative;
+            }
+            .listContainer .right{
+                margin-left: auto;
+            }
 
-
-        /*=================== 주문목록 ~ 찜한상품 리스트 ==================*/
-        .listContainer{
-            padding: 0;
-            background-color: #ffffff;
-            margin-bottom: 10px;
-        }
-        .listContainer .item{
-            display: flex;
-            align-items: center;
-            padding: 16px;
-            color: black;
-            text-decoration: none;
-            height: 56px;
-            box-sizing: border-box;
-        }
-        .listContainer .icon{
-            margin-right: 14px;
-        }
-        .listContainer .text{
-            font-size: 16px;
-            position: relative;
-        }
-        .listContainer .right{
-            margin-left: auto;
-        }
     </style>
-    <title>myPage</title>
+    <title>board/myPage</title>
 </head>
 <body>
 <c:if test="${sessionScope.loginMemberId ne null}">
@@ -139,67 +141,53 @@
         <jsp:include page="../layout/loginHeader.jsp" flush="false"></jsp:include>
     </c:if>
 </c:if>
+
 <div class="container">
-<div class="wrap">
-    <div class="shippingStatusContainer">
-        <div class="title">
-            주문/배송내역
-        </div>
-        <div class="status">
+    <div class="wrap">
+        <div class="shippingStatusContainer">
+            <div class="title">
+                판매
+                <a style="float:right" href="/board/save">판매등록</a>
+            </div>
+            <div class="status">
+                <div class="item">
+                    <div>
+                        <div class="green number">${ing}</div>
+                        <div class="text">판매중</div>
+                    </div>
+                    <div class="icon">  </div>
+                </div>
+                <div class="item">
+                    <div>
+                        <div class="number">${end}</div>
+                        <div class="text">판매완료</div>
+                    </div>
+                    <div class="icon">  </div>
+                </div>
+                <div class="item">
+                </div>
 
-            <div class="item">
-                <div>
-                    <div class="green number">ex</div>
-                    <div class="text">장바구니</div>
-                </div>
-                <div class="icon"> > </div>
-            </div>
-            <div class="item">
-                <div>
-                    <div class="number">ex</div>
-                    <div class="text">구매완료</div>
-                </div>
-                <div class="icon"> > </div>
-            </div>
-            <div class="item">
-                <div>
-                    <div class="green number">ex</div>
-                    <div class="text">판매완료</div>
-                </div>
-                <div class="icon"> > </div>
             </div>
 
         </div>
-
+        <div class="listContainer">
+            <a href="#" class="item">
+                <div class="icon">ii</div>
+                <div class="text">판매중 목록</div>
+                <div class="right"> > </div>
+            </a>
+            <a href="#" class="item">
+                <div class="icon">ii</div>
+                <div class="text">판매완료 목록</div>
+                <div class="right"> > </div>
+            </a>
+            <a href="#" class="item">
+                <div class="icon">ii</div>
+                <div class="text">거래신청??</div>
+                <div class="right"> > </div>
+            </a>
+        </div>
     </div>
-    <div class="listContainer">
-        <a href="/member/update" class="item">
-            <div class="icon">ii</div>
-            <div class="text">회원정보 수정/탈퇴</div>
-            <div class="right"> > </div>
-        </a>
-        <a href="#" class="item">
-            <div class="icon">ii</div>
-            <div class="text">구매목록</div>
-            <div class="right"> > </div>
-        </a>
-        <a href="#" class="item">
-            <div class="icon">ii</div>
-            <div class="text">판매목록</div>
-            <div class="right"> > </div>
-        </a>
-        <a href="#" class="item">
-            <div class="icon">ii</div>
-            <div class="text">거래내역</div>
-            <div class="right"> > </div>
-        </a>
-        <a href="#" class="item">
-            <div class="icon">ii</div>
-            <div class="text">장바구니</div>
-            <div class="right"> > </div>
-        </a>
-    </div>
-</div>
 </div>
 </body>
 </html>

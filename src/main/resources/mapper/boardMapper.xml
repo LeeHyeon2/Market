@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+
+<mapper namespace="Board">
+    <insert id="save" parameterType="board">
+        insert into market_board(memberId,boardTitle,boardContents,boardAddress,boardPrice,boardCategory,boardDate,boardProfile,boardFile,boardStatus)
+        values (#{memberId},#{boardTitle},#{boardAddress},#{boardAddress},#{boardPrice},#{boardCategory},now(),#{boardProfile},#{boardFile},"판매중")
+    </insert>
+
+    <select id="findByList" parameterType="String" resultType="board">
+        select * from market_board where memberId = #{id}
+    </select>
+</mapper>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
