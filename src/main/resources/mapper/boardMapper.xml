@@ -16,6 +16,14 @@
     <select id="findById" parameterType="int" resultType="board">
         select * from market_board where id = #{id} order by id desc
     </select>
+
+    <delete id="delete" parameterType="int">
+        delete from market_board where id = #{id}
+    </delete>
+
+    <update id="update" parameterType="board">
+        update market_board set boardTitle=#{boardTitle},boardContents=#{boardContents},boardAddress=#{boardAddress},boardPrice=#{boardPrice},boardCategory=#{boardCategory},boardProfile=#{boardProfile},boardFile=#{boardFile} where id = #{id}
+    </update>
 </mapper>
 
 

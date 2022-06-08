@@ -68,7 +68,7 @@
                 <c:if test="${sessionScope.loginMemberId ne boardDTO.memberId}">
                     <input type="button" class="btn-primary" value="구매신청">
                     <c:if test="${sessionScope.loginMemberId eq 'admin'}">
-                        <input type="button" class="btn-primary" value="삭제" onclick="location.href = '/board/delete?id=${boardDTO.id}'">
+                        <input type="button" class="btn-primary" value="삭제" onclick="delete1()">
                     </c:if>
                 </c:if>
             </td>
@@ -77,5 +77,9 @@
 </div>
 </body>
 <script>
+    const delete1 = () => {
+        alert("글이 삭제되었습니다!") ;
+        location.href = "/board/delete?id=" + "${boardDTO.id}" ;
+    }
 </script>
 </html>

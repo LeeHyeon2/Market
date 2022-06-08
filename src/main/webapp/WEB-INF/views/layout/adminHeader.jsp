@@ -15,7 +15,7 @@
 <nav class="py-2 bg-light border-bottom">
     <div class="container d-flex flex-wrap">
         <ul class="nav me-auto">
-            <li class="nav-item"><a href="/index" class="nav-link link-dark px-2 active" aria-current="page">Home</a></li>
+            <li class="nav-item"><a href="/" class="nav-link link-dark px-2 active" aria-current="page">Home</a></li>
             <li class="nav-item"><a href="#" class="nav-link link-dark px-2">구매하기</a></li>
             <li class="nav-item"><a href="/board/myPage" class="nav-link link-dark px-2">판매하기</a></li>
             <li class="nav-item"><a href="/member/findAll" class="nav-link link-dark px-2">회원목록</a></li>

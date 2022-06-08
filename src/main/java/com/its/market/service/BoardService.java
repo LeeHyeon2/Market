@@ -51,4 +51,38 @@ public class BoardService {
     public BoardDTO findById(int id) {
         return boardRepository.findById(id);
     }
+
+    public void delete(int id) {
+        boardRepository.delete(id);
+    }
+
+    public void update(BoardDTO boardDTO) throws IOException {
+
+        MultipartFile boardFile1 = boardDTO.getBoardFile1();
+        String boardFile = boardFile1.getOriginalFilename(); //1,2
+        boardFile = System.currentTimeMillis() + "-" + boardFile; // 2.1
+        boardDTO.setBoardFile(boardFile); // 3
+        String savePath = "C:\\spring_img\\" + boardFile; //4
+        //5
+        if(!boardFile1.isEmpty()){
+            boardFile1.transferTo(new File(savePath));
+        }else {
+            boardDTO.setBoardFile(null);
+        }
+        MultipartFile boardProfile1 = boardDTO.getBoardProfile1();
+        String boardProfile = boardProfile1.getOriginalFilename(); //1,2
+        boardProfile = System.currentTimeMillis() + "-" + boardProfile; // 2.1
+        boardDTO.setBoardProfile(boardProfile); // 3
+        String savePath1 = "C:\\spring_img\\" + boardProfile; //4
+        //5
+        if(!boardProfile1.isEmpty()){
+            boardProfile1.transferTo(new File(savePath1));
+        }else {
+            boardDTO.setBoardProfile(null);
+        }
+
+        System.out.println("boardDTO = " + boardDTO);
+
+        boardRepository.update(boardDTO);
+    }
 }
