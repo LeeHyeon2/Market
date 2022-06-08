@@ -120,9 +120,9 @@ public class BoardService {
     public List<BoardDTO> findCategory(int page , String boardCategory) {
         int pagingStart = (page-1) * PAGE_LIMIT;
         BoardDTO boardDTO = new BoardDTO();
-        boardDTO.setId(pagingStart);
-        boardDTO.setBoardHits(PAGE_LIMIT);
-        boardDTO.setBoardCategory(boardCategory);
+        boardDTO.setId(pagingStart); // start
+        boardDTO.setBoardHits(PAGE_LIMIT); // limit
+        boardDTO.setBoardCategory(boardCategory); //category
         List<BoardDTO> pagingList = boardRepository.pagingCategory(boardDTO);
 
         return pagingList;

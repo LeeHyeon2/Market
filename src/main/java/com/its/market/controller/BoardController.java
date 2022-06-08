@@ -101,7 +101,6 @@ public class BoardController {
 
     @GetMapping("/category")
     public String category(@RequestParam("boardCategory") String boardCategory,@RequestParam(value="page", required=false, defaultValue="1") int page,Model model){
-        System.out.println(boardCategory);
         if (boardCategory.equals("전체보기" )){
             return "redirect:/board/item";
         }else{

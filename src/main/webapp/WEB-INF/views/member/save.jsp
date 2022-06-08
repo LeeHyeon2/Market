@@ -71,7 +71,7 @@
           <div class="mb-3">
             <label for="passwordCheck">비밀번호 체크</label>
             <input type="password" class="form-control" id="passwordCheck" placeholder="비밀번호 다시입력
-" required onblur="passwordCheck()">
+" onblur="passwordCheck()">
             <span id="spanPasswordCheck"></span>
           </div>
 
@@ -126,7 +126,17 @@
   <script>
 
     const passwordCheck = () =>{
+      let password = document.getElementById("password").value;
+      let passwordCheck = document.getElementById("passwordCheck").value;
+      let span = document.getElementById("spanPasswordCheck");
 
+      if (password != passwordCheck){
+        span.style.color = "red";
+        span.innerHTML = "비밀번호가 일치하지 않습니다!!";
+      }else{
+        span.style.color = "green";
+        span.innerHTML = "비밀번호가 일치합니다!!"
+      }
     }
 
     function emailSelect() {
@@ -158,7 +168,7 @@
       }).open();
     }
 
-    function save(){
+    function save() {
       let memberName = document.getElementById("name").value;
       let memberId = document.getElementById("memberId").value;
       let password = document.getElementById("password").value;
@@ -167,71 +177,76 @@
       let post = document.getElementById("member_post").value;
       let email2 = document.getElementById("email2").value;
 
-      if(memberName == ""){
+      if (memberName == "") {
         document.getElementById("name").style.borderColor = "red";
         document.getElementById("spanName").style.color = "red";
         document.getElementById("spanName").innerText = "이름을 입력해주세요!!";
-      }else{
+      } else {
         document.getElementById("name").style.borderColor = "green";
         document.getElementById("spanName").style.color = "green";
         document.getElementById("spanName").innerText = "";
       }
 
-      if(memberId == ""){
+      if (memberId == "") {
         document.getElementById("memberId").style.borderColor = "red";
         document.getElementById("spanMemberId").style.color = "red";
         document.getElementById("spanMemberId").innerText = "아이디를 입력해주세요!!";
       }
 
-      if(password == ""){
+      if (password == "") {
         document.getElementById("password").style.borderColor = "red";
         document.getElementById("spanPassword").style.color = "red";
         document.getElementById("spanPassword").innerText = "비밀번호를 입력해주세요!!";
-      }else{
+      } else {
         document.getElementById("password").style.borderColor = "green";
         document.getElementById("spanPassword").style.color = "green";
         document.getElementById("spanPassword").innerText = "";
       }
-      if(passwordCheck == ""){
+      if (passwordCheck == "") {
         document.getElementById("passwordCheck").style.borderColor = "red";
         document.getElementById("spanPasswordCheck").style.color = "red";
         document.getElementById("spanPasswordCheck").innerText = "비밀번호 체크를 입력해주세요!!";
-      }else if(password != passwordCheck){
+      } else if (password != passwordCheck) {
         document.getElementById("passwordCheck").style.borderColor = "red";
         document.getElementById("spanPasswordCheck").style.color = "red";
         document.getElementById("spanPasswordCheck").innerText = "비밀번호가 일치하지 않습니다!!";
-      }else if(password == passwordCheck){
+      } else if (password == passwordCheck) {
         document.getElementById("passwordCheck").style.borderColor = "green";
         document.getElementById("spanPasswordCheck").style.color = "green";
         document.getElementById("spanPasswordCheck").innerText = "";
       }
 
-      if(email == "" || email2 == ""){
+      if (email == "" || email2 == "") {
         document.getElementById("email1").style.borderColor = "red";
         document.getElementById("spanEmail1").style.color = "red";
         document.getElementById("spanEmail1").innerText = "이메일을 입력해주세요!!";
-      }else{
+      } else {
         document.getElementById("email1").style.borderColor = "green";
         document.getElementById("spanEmail1").style.color = "green";
         document.getElementById("spanEmail1").innerText = "";
       }
 
-      if(post == ""){
+      if (post == "") {
         document.getElementById("member_post").style.borderColor = "red";
         document.getElementById("spanPost").style.color = "red";
         document.getElementById("spanPost").innerText = "주소를 입력해주세요!!";
-      }else{
+      } else {
         document.getElementById("member_post").style.borderColor = "green";
         document.getElementById("spanPost").style.color = "green";
         document.getElementById("spanPost").innerText = "";
       }
 
-      if(saveCheck == 1 && memberName!="" && passwordCheck!= "" && password != "" && email != "" && post != "" && email2 != ""){
-        alert("가입이 완료됐습니다!")
-        saveForm.submit();
+      if (saveCheck == 1 && memberName != "" && passwordCheck != "" && password != "" && email != "" && post != "" && email2 != "") {
+        if (password == passwordCheck) {
+          alert("가입이 완료됐습니다!")
+          saveForm.submit();
+        } else {
+          alert("알맞은 정보를 입력해 주세요!!")
+        }
+      } else {
+        alert("알맞은 정보를 입력해주세요")
       }
     }
-
     let saveCheck = 0;
     const duplicateCheck = () => {
       const memberId = document.getElementById("memberId").value;
@@ -243,6 +258,7 @@
         dataType: "text",
         success: function (result){
           if(result == "ok"){
+            document.getElementById("memberId").style.borderColor = "green";
             checkResult.style.color = "green";
             checkResult.innerHTML = "가입가능 합니다!"
             saveCheck = 1;
