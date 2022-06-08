@@ -67,7 +67,12 @@
                 </c:if>
                 <c:if test="${sessionScope.loginMemberId ne boardDTO.memberId}">
                     <input type="button" class="btn-primary" value="구매신청">
-                    <input type="button" class="btn-primary" value="장바구니에 추가">
+                    <c:if test="${bag eq null}">
+                        <input type="button" class="btn-primary" value="장바구니에 추가" onclick="bagUpdate();location.href = '/bag/update?memberId=${sessionScope.loginMemberId}&boardId=${boardDTO.id}'">
+                    </c:if>
+                    <c:if test="${bag ne null}">
+                        <input type="button" class="btn-primary" value="장바구니 삭제" onclick="location.href = '/bag/delete?memberId=${sessionScope.loginMemberId}&boardId=${boardDTO.id}'" >
+                    </c:if>
                     <c:if test="${sessionScope.loginMemberId eq 'admin'}">
                         <input type="button" class="btn-primary" value="삭제" onclick="delete1()">
                     </c:if>
@@ -81,6 +86,9 @@
     const delete1 = () => {
         alert("글이 삭제되었습니다!") ;
         location.href = "/board/delete?id=" + "${boardDTO.id}" ;
+    }
+    const bagUpdate = () =>{
+        alert("장바구니에 등록되었습니다!")
     }
 </script>
 </html>

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+
+<mapper namespace="Bag">
+    <select id="findById" parameterType="bag" resultType="bag">
+        select * from market_bag where memberId = #{memberId} and boardId = #{boardId}
+    </select>
+
+    <insert id="update" parameterType="bag">
+        insert into market_bag (memberId,boardId)
+            values (#{memberId},#{boardId})
+    </insert>
+</mapper>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
