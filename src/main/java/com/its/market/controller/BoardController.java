@@ -24,7 +24,6 @@ public class BoardController {
         int count2 = 0;
         int count3 = 0;
         for(int i = 0 ; i<boardDTOS.size() ; i++){
-            System.out.println(boardDTOS.get(i).getBoardStatus());
             if(boardDTOS.get(i).getBoardStatus().equals("판매중")){
                 count1++;
             }
@@ -59,5 +58,12 @@ public class BoardController {
         model.addAttribute("id",id);
         model.addAttribute("boardDTO",boardDTOS);
         return "/board/saleList";
+    }
+
+    @GetMapping("/detail")
+    public String detail(@RequestParam("id") int id , Model model) {
+        BoardDTO boardDTO = boardService.findById(id);
+        model.addAttribute("boardDTO",boardDTO);
+        return "/board/detail";
     }
 }

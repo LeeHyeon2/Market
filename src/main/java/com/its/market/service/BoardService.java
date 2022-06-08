@@ -47,4 +47,8 @@ public class BoardService {
     public List<BoardDTO> findByList(Object loginId) {
         return boardRepository.findByList(loginId);
     }
+
+    public BoardDTO findById(int id) {
+        return boardRepository.findById(id);
+    }
 }

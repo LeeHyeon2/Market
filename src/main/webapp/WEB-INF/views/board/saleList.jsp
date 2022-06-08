@@ -35,6 +35,7 @@
             </tr>
             <tr>
                 <th>글번호</th>
+                <th>대표사진</th>
                 <th>제목</th>
                 <th>카테고리</th>
                 <th>작성일자</th>
@@ -44,6 +45,7 @@
                 <c:if test="${board.boardStatus eq '판매중'}">
                     <tr class="colored" onclick="location.href='/board/detail?id=${board.id}'">
                         <td>${board.id}</td>
+                        <td><img src="${pageContext.request.contextPath}/upload/${board.boardProfile}" alt="" height="100" width="100"></td>
                         <td>${board.boardTitle}</td>
                         <td>${board.boardCategory}</td>
                         <td>${board.boardDate}</td>
@@ -60,6 +62,7 @@
             </tr>
             <tr>
                 <th>글번호</th>
+                <th>대표사진</th>
                 <th>제목</th>
                 <th>카테고리</th>
                 <th>작성일자</th>
@@ -69,6 +72,7 @@
                 <c:if test="${board.boardStatus eq '판매완료'}">
                     <tr class="colored" onclick="location.href='/board/detail?id=${board.id}'">
                         <td>${board.id}</td>
+                        <td><img src="${pageContext.request.contextPath}/upload/${board.boardProfile}" alt="" height="100" width="100"></td>
                         <td>${board.boardTitle}</td>
                         <td>${board.boardCategory}</td>
                         <td>${board.boardDate}</td>
