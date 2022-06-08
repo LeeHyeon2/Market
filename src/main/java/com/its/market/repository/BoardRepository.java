@@ -1,11 +1,13 @@
 package com.its.market.repository;
 
 import com.its.market.dto.BoardDTO;
+import com.its.market.dto.MemberDTO;
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
+import java.util.Map;
 
 @Repository
 public class BoardRepository {
@@ -31,5 +33,15 @@ public class BoardRepository {
 
     public void update(BoardDTO boardDTO) {
         sql.update("Board.update",boardDTO);
+    }
+
+
+    public List<BoardDTO> pagingList(Map<String, Integer> pagingParam) {
+        return sql.selectList("Board.pagingList", pagingParam);
+    }
+
+
+    public int boardCount() {
+        return sql.selectOne("Board.count");
     }
 }

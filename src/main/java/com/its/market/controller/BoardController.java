@@ -1,6 +1,8 @@
 package com.its.market.controller;
 
 import com.its.market.dto.BoardDTO;
+import com.its.market.dto.MemberDTO;
+import com.its.market.dto.PageDTO;
 import com.its.market.service.BoardService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -84,5 +86,16 @@ public class BoardController {
     public String update(@ModelAttribute BoardDTO boardDTO) throws IOException {
         boardService.update(boardDTO);
         return "redirect:/board/detail?id=" + boardDTO.getId();
+    }
+
+    @GetMapping("/item")
+    public String item(@RequestParam(value="page", required=false, defaultValue="1") int page,Model model){
+        List<BoardDTO> boardDTOS = boardService.findAll(page);
+        PageDTO paging = boardService.paging(page);
+        model.addAttribute("boardDTO",boardDTOS);
+        model.addAttribute("paging",paging);
+
+
+        return "/board/item";
     }
 }

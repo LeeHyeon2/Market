@@ -67,6 +67,7 @@
                 </c:if>
                 <c:if test="${sessionScope.loginMemberId ne boardDTO.memberId}">
                     <input type="button" class="btn-primary" value="구매신청">
+                    <input type="button" class="btn-primary" value="장바구니에 추가">
                     <c:if test="${sessionScope.loginMemberId eq 'admin'}">
                         <input type="button" class="btn-primary" value="삭제" onclick="delete1()">
                     </c:if>

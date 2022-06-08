@@ -1,7 +1,9 @@
 package com.its.market.controller;
 
+import com.its.market.dto.BoardDTO;
 import com.its.market.dto.MemberDTO;
 import com.its.market.dto.PageDTO;
+import com.its.market.service.BoardService;
 import com.its.market.service.MemberService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -16,6 +18,8 @@ import java.util.List;
 public class MemberController {
     @Autowired
     public MemberService memberService;
+    @Autowired
+    public BoardService boardService;
 
     @GetMapping("/save")
     public String saveForm(){
@@ -114,6 +118,8 @@ public class MemberController {
     @GetMapping("/detail")
     public String findById(@RequestParam("id") int id , Model model){
         MemberDTO memberDTO = memberService.findById(id);
+        List<BoardDTO> boardDTOS = boardService.findByList(memberDTO.getMemberId());
+        model.addAttribute("boardDTO",boardDTOS);
         model.addAttribute("member",memberDTO);
         return "/member/detail";
     }
