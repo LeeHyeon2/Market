@@ -81,6 +81,33 @@
                 </c:if>
             </c:forEach>
         </c:if>
+
+        <c:if test="${id eq 3}">
+            <tr>
+                <th>거래중 목록</th>
+                <th></th><th></th><th></th>
+            </tr>
+            <tr>
+                <th>글번호</th>
+                <th>대표사진</th>
+                <th>제목</th>
+                <th>카테고리</th>
+                <th>작성일자</th>
+                <th>조회수</th>
+            </tr>
+            <c:forEach items="${boardDTO}" var="board">
+                <c:if test="${board.boardStatus eq '거래중'}">
+                    <tr class="colored" onclick="location.href='/board/detail?id=${board.id}'">
+                        <td>${board.id}</td>
+                        <td><img src="${pageContext.request.contextPath}/upload/${board.boardProfile}" alt="" height="100" width="100"></td>
+                        <td>${board.boardTitle}</td>
+                        <td>${board.boardCategory}</td>
+                        <td>${board.boardDate}</td>
+                        <td>${board.boardHits}</td>
+                    </tr>
+                </c:if>
+            </c:forEach>
+        </c:if>
     </table>
 </div>
 </body>

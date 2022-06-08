@@ -21,6 +21,7 @@ public class BoardRepository {
     }
 
     public BoardDTO findById(int id) {
+        sql.update("Board.hits",id);
         return sql.selectOne("Board.findById",id);
     }
 

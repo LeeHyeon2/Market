@@ -24,6 +24,10 @@
     <update id="update" parameterType="board">
         update market_board set boardTitle=#{boardTitle},boardContents=#{boardContents},boardAddress=#{boardAddress},boardPrice=#{boardPrice},boardCategory=#{boardCategory},boardProfile=#{boardProfile},boardFile=#{boardFile} where id = #{id}
     </update>
+
+    <update id="hits" parameterType="int">
+        update market_board set boardHits = boardHits + 1 where id = #{id}
+    </update>
 </mapper>
 
 

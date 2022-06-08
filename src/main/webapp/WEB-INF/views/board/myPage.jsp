@@ -188,7 +188,7 @@
                 <div class="text">판매완료 목록</div>
                 <div class="right"> > </div>
             </a>
-            <a href="#" class="item">
+            <a href="/board/sale?id=3" class="item">
                 <div class="icon">ii</div>
                 <div class="text">거래중 목록</div>
                 <div class="right"> > </div>
