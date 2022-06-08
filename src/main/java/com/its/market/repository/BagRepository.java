@@ -17,4 +17,8 @@ public class BagRepository {
     public void update(BagDTO bagDTO) {
         sql.insert("Bag.update",bagDTO);
     }
+
+    public void delete(BagDTO bagDTO) {
+        sql.delete("Bag.delete",bagDTO);
+    }
 }

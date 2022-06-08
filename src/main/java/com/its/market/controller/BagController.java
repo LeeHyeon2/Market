@@ -23,4 +23,13 @@ public class BagController {
         bagService.update(bagDTO);
         return "redirect:/board/detail?id=" + boardId;
     }
+
+    @GetMapping("/delete")
+    public String delete(@RequestParam("memberId") String memberId , @RequestParam("boardId") int boardId){
+        BagDTO bagDTO = new BagDTO();
+        bagDTO.setMemberId(memberId);
+        bagDTO.setBoardId(boardId);
+        bagService.delete(bagDTO);
+        return "redirect:/board/detail?id=" + boardId;
+    }
 }

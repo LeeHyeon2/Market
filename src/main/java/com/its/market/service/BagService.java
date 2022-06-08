@@ -18,4 +18,8 @@ public class BagService {
     public void update(BagDTO bagDTO) {
         bagRepository.update(bagDTO);
     }
+
+    public void delete(BagDTO bagDTO) {
+        bagRepository.delete(bagDTO);
+    }
 }

@@ -71,7 +71,7 @@
                         <input type="button" class="btn-primary" value="장바구니에 추가" onclick="bagUpdate();location.href = '/bag/update?memberId=${sessionScope.loginMemberId}&boardId=${boardDTO.id}'">
                     </c:if>
                     <c:if test="${bag ne null}">
-                        <input type="button" class="btn-primary" value="장바구니 삭제" onclick="location.href = '/bag/delete?memberId=${sessionScope.loginMemberId}&boardId=${boardDTO.id}'" >
+                        <input type="button" class="btn-primary" value="장바구니 삭제" onclick="bagDelete();location.href = '/bag/delete?memberId=${sessionScope.loginMemberId}&boardId=${boardDTO.id}'" >
                     </c:if>
                     <c:if test="${sessionScope.loginMemberId eq 'admin'}">
                         <input type="button" class="btn-primary" value="삭제" onclick="delete1()">
@@ -89,6 +89,9 @@
     }
     const bagUpdate = () =>{
         alert("장바구니에 등록되었습니다!")
+    }
+    const bagDelete = () => {
+        alert("장바구니 삭제")
     }
 </script>
 </html>

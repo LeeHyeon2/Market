@@ -12,6 +12,10 @@
         insert into market_bag (memberId,boardId)
             values (#{memberId},#{boardId})
     </insert>
+
+    <delete id="delete" parameterType="bag">
+        delete from market_bag where memberId = #{memberId} and boardId = #{boardId}
+    </delete>
 </mapper>
 
 
