@@ -36,6 +36,14 @@
     <select id="count" resultType="int">
         select count(id) from market_board
     </select>
+
+    <select id="pagingCategory" parameterType="board" resultType="board">
+        select * from market_board where boardCategory = #{boardCategory} order by id desc limit #{id}, #{boardHits}
+    </select>
+
+    <select id="countCategory" parameterType="String" resultType="int">
+        select count(id) from market_board where boardCategory = #{boardCategory}
+    </select>
 </mapper>
 
 

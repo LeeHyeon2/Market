@@ -98,4 +98,19 @@ public class BoardController {
 
         return "/board/item";
     }
+
+    @GetMapping("/category")
+    public String category(@RequestParam("boardCategory") String boardCategory,@RequestParam(value="page", required=false, defaultValue="1") int page,Model model){
+        System.out.println(boardCategory);
+        if (boardCategory.equals("전체보기" )){
+            return "redirect:/board/item";
+        }else{
+            List<BoardDTO> boardDTOS = boardService.findCategory(page,boardCategory);
+            PageDTO paging = boardService.pagingCategory(page,boardCategory);
+            model.addAttribute("category",boardCategory);
+            model.addAttribute("boardDTO",boardDTOS);
+            model.addAttribute("paging",paging);
+            return "/board/category";
+        }
+    }
 }

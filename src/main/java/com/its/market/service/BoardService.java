@@ -116,4 +116,30 @@ public class BoardService {
         paging.setMaxPage(maxPage);
         return paging;
     }
+
+    public List<BoardDTO> findCategory(int page , String boardCategory) {
+        int pagingStart = (page-1) * PAGE_LIMIT;
+        BoardDTO boardDTO = new BoardDTO();
+        boardDTO.setId(pagingStart);
+        boardDTO.setBoardHits(PAGE_LIMIT);
+        boardDTO.setBoardCategory(boardCategory);
+        List<BoardDTO> pagingList = boardRepository.pagingCategory(boardDTO);
+
+        return pagingList;
+    }
+
+    public PageDTO pagingCategory(int page , String boardCategory) {
+        int memberCount = boardRepository.CategoryCount(boardCategory);
+        int maxPage = (int)(Math.ceil((double)memberCount / PAGE_LIMIT));
+        int startPage = (((int)(Math.ceil((double)page / BLOCK_LIMIT))) - 1) * BLOCK_LIMIT + 1;
+        int endPage = startPage + BLOCK_LIMIT - 1;
+        if(endPage > maxPage)
+            endPage = maxPage;
+        PageDTO paging = new PageDTO();
+        paging.setPage(page);
+        paging.setStartPage(startPage);
+        paging.setEndPage(endPage);
+        paging.setMaxPage(maxPage);
+        return paging;
+    }
 }

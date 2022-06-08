@@ -2,7 +2,7 @@
   Created by IntelliJ IDEA.
   User: GRAM
   Date: 2022-06-08
-  Time: 오전 10:21
+  Time: 오전 11:04
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
@@ -45,24 +45,34 @@
             <th>제목</th>
             <form action="/board/category" method="get" name="categoryForm">
                 <th>카테고리 <select name="boardCategory" id="boardCategory" onchange="category()">
-                    <option value="전체보기">전체보기</option>
-                    <option value="전자기기">전자기기</option>
-                    <option value="식품">식품</option>
-                    <option value="가전">가전</option>
+                    <option value="${category}">${category}</option>
+                    <c:if test="${category ne '전체보기'}">
+                        <option value="전체보기">전체보기</option>
+                    </c:if>
+                    <c:if test="${category ne '전자기기'}">
+                        <option value="전자기기">전자기기</option>
+                    </c:if>
+                    <c:if test="${category ne '식품'}">
+                        <option value="식품">식품</option>
+                    </c:if>
+                    <c:if test="${category ne '가전'}">
+                        <option value="가전">가전</option>
+                    </c:if>
+
                 </select></th>
             </form>
             <th>작성일자</th>
             <th>조회수</th>
         </tr>
         <c:forEach items="${boardDTO}" var="board">
-        <tr class="colored" onclick="location.href='/board/detail?id=${board.id}'">
-            <td>${board.id}</td>
-            <td><img src="${pageContext.request.contextPath}/upload/${board.boardProfile}" alt="" height="100" width="100"></td>
-            <td>${board.boardTitle}</td>
-            <td>${board.boardCategory}</td>
-            <td>${board.boardDate}</td>
-            <td>${board.boardHits}</td>
-        </tr>
+            <tr class="colored" onclick="location.href='/board/detail?id=${board.id}'">
+                <td>${board.id}</td>
+                <td><img src="${pageContext.request.contextPath}/upload/${board.boardProfile}" alt="" height="100" width="100"></td>
+                <td>${board.boardTitle}</td>
+                <td>${board.boardCategory}</td>
+                <td>${board.boardDate}</td>
+                <td>${board.boardHits}</td>
+            </tr>
         </c:forEach>
     </table>
 </div>
@@ -79,7 +89,7 @@
             <%-- 1페이지가 아닌 경우에는 이전을 클릭하면 현재 페이지보다 1작은페이지요청 --%>
             <c:otherwise>
                 <li class="page-item">
-                    <a class="page-link" href="/board/item?page=${paging.page-1}">[이전]</a>
+                    <a class="page-link" href="/board/category?page=${paging.page-1}&boardCategory=${category}">[이전]</a>
                 </li>
             </c:otherwise>
         </c:choose>
@@ -94,7 +104,7 @@
                 </c:when>
                 <c:otherwise>
                     <li class="page-item">
-                        <a class="page-link" href="/board/item?page=${i}">${i}</a>
+                        <a class="page-link" href="/board/category?page=${i}&boardCategory=${category}">${i}</a>
                     </li>
                 </c:otherwise>
             </c:choose>
@@ -107,7 +117,7 @@
             </c:when>
             <c:otherwise>
                 <li class="page-item">
-                    <a class="page-link" href="/board/item?page=${paging.page+1}">[다음]</a>
+                    <a class="page-link" href="/board/category?page=${paging.page+1}&boardCategory=${category}">[다음]</a>
                 </li>
             </c:otherwise>
         </c:choose>
@@ -116,7 +126,7 @@
 </body>
 <script>
     const category = () => {
-      categoryForm.submit();
+        categoryForm.submit();
     }
 </script>
 </html>

@@ -44,4 +44,13 @@ public class BoardRepository {
     public int boardCount() {
         return sql.selectOne("Board.count");
     }
+
+    public List<BoardDTO> pagingCategory(BoardDTO boardDTO) {
+        return sql.selectList("Board.pagingCategory", boardDTO);
+    }
+
+
+    public int CategoryCount(String boardCategory) {
+        return sql.selectOne("Board.countCategory",boardCategory);
+    }
 }
