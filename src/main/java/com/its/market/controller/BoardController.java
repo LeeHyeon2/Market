@@ -60,9 +60,13 @@ public class BoardController {
 
     @GetMapping("/sale")
     public String sale(HttpSession session,Model model,@RequestParam("id") int id){
-        List<BoardDTO> boardDTOS = boardService.findByList(session.getAttribute("loginMemberId"));
-        model.addAttribute("id",id);
+//        List<BoardDTO> boardDTOS = boardService.findByList(session.getAttribute("loginMemberId"));
+//        model.addAttribute("id",id);
+//        model.addAttribute("boardDTO",boardDTOS);
+        List<BoardDTO> boardDTOS = boardService.findAll(page);
+        PageDTO paging = boardService.paging(page);
         model.addAttribute("boardDTO",boardDTOS);
+        model.addAttribute("paging",paging);
         return "/board/saleList";
     }
 

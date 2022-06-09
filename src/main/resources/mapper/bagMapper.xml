@@ -16,6 +16,14 @@
     <delete id="delete" parameterType="bag">
         delete from market_bag where memberId = #{memberId} and boardId = #{boardId}
     </delete>
+
+    <select id="myBag" parameterType="String" resultType="int">
+        select count(id) from market_bag where memberId = #{memberId}
+    </select>
+
+    <select id="findList" parameterType="String" resultType="bag">
+        select * from market_bag where memberId = #{memberId}
+    </select>
 </mapper>
 
 

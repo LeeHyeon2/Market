@@ -30,8 +30,7 @@
     <table class="table">
         <c:if test="${id eq 1}">
             <tr>
-                <th>판매중인 물건</th>
-                <th></th><th></th><th></th>
+                <th colspan="7">판매중인 물건</th>
             </tr>
             <tr>
                 <th>글번호</th>
@@ -57,8 +56,7 @@
 
         <c:if test="${id eq 2}">
             <tr>
-                <th>판매완료</th>
-                <th></th><th></th><th></th>
+                <th colspan="7">판매완료</th>
             </tr>
             <tr>
                 <th>글번호</th>
@@ -84,8 +82,7 @@
 
         <c:if test="${id eq 3}">
             <tr>
-                <th>거래중 목록</th>
-                <th></th><th></th><th></th>
+                <th colspan="7">거래중 목록</th>
             </tr>
             <tr>
                 <th>글번호</th>
@@ -110,5 +107,7 @@
         </c:if>
     </table>
 </div>
+
+
 </body>
 </html>

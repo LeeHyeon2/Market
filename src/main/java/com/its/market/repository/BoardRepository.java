@@ -18,9 +18,6 @@ public class BoardRepository {
         sql.insert("Board.save",boardDTO);
     }
 
-    public List<BoardDTO> findByList(Object id) {
-        return sql.selectList("Board.findByList",id);
-    }
 
     public BoardDTO findById(int id) {
         sql.update("Board.hits",id);

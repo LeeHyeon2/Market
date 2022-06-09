@@ -23,7 +23,7 @@
         <ul class="nav">
             <li class="nav-item"><div class="nav-link link-dark px-2">${sessionScope.loginMemberName}(님)</div></li>
             <li class="nav-item"><a href="/member/myPage" class="nav-link link-dark px-2">마이페이지</a></li>
-            <li class="nav-item"><a href="#" class="nav-link link-dark px-2">장바구니</a></li>
+            <li class="nav-item"><a href="/bag/myBag" class="nav-link link-dark px-2">장바구니</a></li>
             <li class="nav-item"><a href="/member/logout" class="nav-link link-dark px-2">로그아웃</a></li>
         </ul>
     </div>

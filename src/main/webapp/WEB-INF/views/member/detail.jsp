@@ -41,8 +41,7 @@
     </table>
     <table class="table">
         <tr>
-            <th>글 목록</th>
-            <th></th><th></th><th></th>
+            <th colspan="7">글 목록</th>
         </tr>
         <tr>
             <th>글번호</th>

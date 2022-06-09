@@ -9,9 +9,6 @@
         values (#{memberId},#{boardTitle},#{boardContents},#{boardAddress},#{boardPrice},#{boardCategory},now(),#{boardProfile},#{boardFile},"판매중")
     </insert>
 
-    <select id="findByList" parameterType="String" resultType="board">
-        select * from market_board where memberId = #{id} order by id desc
-    </select>
 
     <select id="findById" parameterType="int" resultType="board">
         select * from market_board where id = #{id} order by id desc

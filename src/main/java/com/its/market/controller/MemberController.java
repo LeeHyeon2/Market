@@ -3,6 +3,7 @@ package com.its.market.controller;
 import com.its.market.dto.BoardDTO;
 import com.its.market.dto.MemberDTO;
 import com.its.market.dto.PageDTO;
+import com.its.market.service.BagService;
 import com.its.market.service.BoardService;
 import com.its.market.service.MemberService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,6 +21,8 @@ public class MemberController {
     public MemberService memberService;
     @Autowired
     public BoardService boardService;
+    @Autowired
+    public BagService bagService;
 
     @GetMapping("/save")
     public String saveForm(){
@@ -76,7 +79,9 @@ public class MemberController {
     }
 
     @GetMapping("/myPage")
-    public String myPageForm(){
+    public String myPageForm(Model model , HttpSession session){
+        int myBag = bagService.myBag(session.getAttribute("loginMemberId"));
+        model.addAttribute("myBag",myBag);
         return "/member/myPage";
     }
 

@@ -36,11 +36,11 @@
 <div class="container mt-3">
     <table class="table">
         <tr>
-            <th>구매하기</th>
-            <th></th><th></th><th></th>
+            <th colspan="7">구매하기</th>
         </tr>
         <tr>
             <th>글번호</th>
+            <th>판매자</th>
             <th>대표사진</th>
             <th>제목</th>
             <form action="/board/category" method="get" name="categoryForm">
@@ -57,6 +57,7 @@
         <c:forEach items="${boardDTO}" var="board">
         <tr class="colored" onclick="location.href='/board/detail?id=${board.id}'">
             <td>${board.id}</td>
+            <td>${board.memberId}</td>
             <td><img src="${pageContext.request.contextPath}/upload/${board.boardProfile}" alt="" height="100" width="100"></td>
             <td>${board.boardTitle}</td>
             <td>${board.boardCategory}</td>

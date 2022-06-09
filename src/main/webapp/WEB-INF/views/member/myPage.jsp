@@ -149,24 +149,24 @@
 
             <div class="item">
                 <div>
-                    <div class="green number">ex</div>
+                    <div class="green number">${myBag}</div>
                     <div class="text">장바구니</div>
                 </div>
-                <div class="icon"> > </div>
+                <div class="icon">  </div>
             </div>
             <div class="item">
                 <div>
                     <div class="number">ex</div>
                     <div class="text">구매완료</div>
                 </div>
-                <div class="icon"> > </div>
+                <div class="icon">  </div>
             </div>
             <div class="item">
                 <div>
                     <div class="green number">ex</div>
                     <div class="text">판매완료</div>
                 </div>
-                <div class="icon"> > </div>
+                <div class="icon">  </div>
             </div>
 
         </div>
@@ -193,7 +193,7 @@
             <div class="text">거래내역</div>
             <div class="right"> > </div>
         </a>
-        <a href="#" class="item">
+        <a href="/bag/myBag" class="item">
             <div class="icon">ii</div>
             <div class="text">장바구니</div>
             <div class="right"> > </div>

@@ -91,7 +91,7 @@
         alert("장바구니에 등록되었습니다!")
     }
     const bagDelete = () => {
-        alert("장바구니 삭제")
+        alert("장바구니에서 삭제되었습니다!!")
     }
 </script>
 </html>
