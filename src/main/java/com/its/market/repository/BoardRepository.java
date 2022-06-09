@@ -2,6 +2,7 @@ package com.its.market.repository;
 
 import com.its.market.dto.BoardDTO;
 import com.its.market.dto.MemberDTO;
+import com.its.market.dto.PageDTO;
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
@@ -49,5 +50,17 @@ public class BoardRepository {
 
     public int CategoryCount(String boardCategory) {
         return sql.selectOne("Board.countCategory",boardCategory);
+    }
+
+    public List<BoardDTO> pagingSale(PageDTO pageDTO) {
+        return sql.selectList("Board.pagingSale",pageDTO);
+    }
+
+    public int SaleCount(PageDTO count) {
+        return sql.selectOne("Board.countSale",count);
+    }
+
+    public List<BoardDTO> findByList(Object loginMemberId) {
+        return sql.selectList("Board.findByList",loginMemberId);
     }
 }

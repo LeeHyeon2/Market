@@ -41,6 +41,18 @@
     <select id="countCategory" parameterType="String" resultType="int">
         select count(id) from market_board where boardCategory = #{boardCategory}
     </select>
+
+    <select id="pagingSale" parameterType="page" resultType="board">
+        select * from market_board where memberId = #{loginId} and boardStatus = #{status} order by id desc limit #{startPage}, #{endPage}
+    </select>
+
+    <select id="countSale" parameterType="page" resultType="int">
+        select count(id) from market_board where memberId = #{loginId} and boardStatus = #{status}
+    </select>
+
+    <select id="findByList" parameterType="String" resultType="board">
+        select * from market_board where memberId = #{loginMemberId}
+    </select>
 </mapper>
 
 

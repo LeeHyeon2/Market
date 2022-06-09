@@ -59,12 +59,18 @@ public class BoardController {
     }
 
     @GetMapping("/sale")
-    public String sale(HttpSession session,Model model,@RequestParam("id") int id){
-//        List<BoardDTO> boardDTOS = boardService.findByList(session.getAttribute("loginMemberId"));
-//        model.addAttribute("id",id);
-//        model.addAttribute("boardDTO",boardDTOS);
-        List<BoardDTO> boardDTOS = boardService.findAll(page);
-        PageDTO paging = boardService.paging(page);
+    public String sale(HttpSession session,Model model,@RequestParam("id") int id,@RequestParam(value="page", required=false, defaultValue="1") int page){
+        String status = "";
+        if(id==1){
+           status = "판매중";
+        }else if(id==2){
+           status = "판매완료";
+        }else {
+           status = "거래중";
+        }
+        List<BoardDTO> boardDTOS = boardService.findSale(page,status,session.getAttribute("loginMemberId"));
+        PageDTO paging = boardService.pagingSale(page,status,session.getAttribute("loginMemberId"));
+        model.addAttribute("id",id);
         model.addAttribute("boardDTO",boardDTOS);
         model.addAttribute("paging",paging);
         return "/board/saleList";

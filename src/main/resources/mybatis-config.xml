@@ -5,6 +5,7 @@
     <typeAliases>
         <typeAlias type="com.its.market.dto.MemberDTO" alias="member"></typeAlias>
         <typeAlias type="com.its.market.dto.BoardDTO" alias="board"></typeAlias>
-        <typeAlias type="com.its.market.dto.BagDTO" alias="Bag"></typeAlias>
+        <typeAlias type="com.its.market.dto.BagDTO" alias="bag"></typeAlias>
+        <typeAlias type="com.its.market.dto.PageDTO" alias="page"></typeAlias>
     </typeAliases>
 </configuration>

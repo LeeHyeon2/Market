@@ -139,4 +139,36 @@ public class BoardService {
         paging.setMaxPage(maxPage);
         return paging;
     }
+
+    public List<BoardDTO> findSale(int page, String status, Object loginMemberId) {
+        int pagingStart = (page-1) * PAGE_LIMIT;
+        PageDTO pageDTO = new PageDTO();
+        pageDTO.setStartPage(pagingStart); // start
+        pageDTO.setEndPage(PAGE_LIMIT); // limit
+        pageDTO.setStatus(status); //status
+        pageDTO.setLoginId((String) loginMemberId); // memberId
+        return boardRepository.pagingSale(pageDTO);
+    }
+
+    public PageDTO pagingSale(int page, String status, Object loginMemberId) {
+        PageDTO count = new PageDTO();
+        count.setStatus(status);
+        count.setLoginId((String) loginMemberId);
+        int memberCount = boardRepository.SaleCount(count);
+        int maxPage = (int)(Math.ceil((double)memberCount / PAGE_LIMIT));
+        int startPage = (((int)(Math.ceil((double)page / BLOCK_LIMIT))) - 1) * BLOCK_LIMIT + 1;
+        int endPage = startPage + BLOCK_LIMIT - 1;
+        if(endPage > maxPage)
+            endPage = maxPage;
+        PageDTO paging = new PageDTO();
+        paging.setPage(page);
+        paging.setStartPage(startPage);
+        paging.setEndPage(endPage);
+        paging.setMaxPage(maxPage);
+        return paging;
+    }
+
+    public List<BoardDTO> findByList(Object loginMemberId) {
+        return boardRepository.findByList(loginMemberId);
+    }
 }
