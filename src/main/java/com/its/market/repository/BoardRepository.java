@@ -63,4 +63,8 @@ public class BoardRepository {
     public List<BoardDTO> findByList(Object loginMemberId) {
         return sql.selectList("Board.findByList",loginMemberId);
     }
+
+    public BoardDTO findById1(int boardId) {
+        return sql.selectOne("Board.findById",boardId);
+    }
 }

@@ -171,4 +171,8 @@ public class BoardService {
     public List<BoardDTO> findByList(Object loginMemberId) {
         return boardRepository.findByList(loginMemberId);
     }
+
+    public BoardDTO findById1(int boardId) {
+        return boardRepository.findById1(boardId);
+    }
 }

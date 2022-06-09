@@ -105,54 +105,61 @@
                 </c:if>
             </c:forEach>
         </c:if>
+        <c:if test="${boardDTO.size() eq 0}">
+            <tr>
+                <td colspan="8">등록된 글이 없습니다.</td>
+            </tr>
+        </c:if>
     </table>
 </div>
 
-<div class="container">
-    <ul class="pagination justify-content-center">
-        <c:choose>
-            <%-- 현재 페이지가 1페이지면 이전 글자만 보여줌--%>
-            <c:when test="${paging.page<=1}">
-                <li class="page-item disabled">
-                    <a class="page-link">[이전]</a>
-                </li>
-            </c:when>
-            <%-- 1페이지가 아닌 경우에는 이전을 클릭하면 현재 페이지보다 1작은페이지요청 --%>
-            <c:otherwise>
-                <li class="page-item">
-                    <a class="page-link" href="/board/sale?page=${paging.page-1}&id=${id}">[이전]</a>
-                </li>
-            </c:otherwise>
-        </c:choose>
-
-        <c:forEach begin="${paging.startPage}" end="${paging.endPage}" var="i" step="1">
+<c:if test="${boardDTO.size() ne 0}">
+    <div class="container">
+        <ul class="pagination justify-content-center">
             <c:choose>
-                <%-- 요청한 페이지에 있는 경우 페이지 ㅓ번호는 텍스므만 보이게 --%>
-                <c:when test="${i eq paging.page}">
-                    <li class="page-item active">
-                        <a class="page-link">${i}</a>
+                <%-- 현재 페이지가 1페이지면 이전 글자만 보여줌--%>
+                <c:when test="${paging.page<=1}">
+                    <li class="page-item disabled">
+                        <a class="page-link">[이전]</a>
+                    </li>
+                </c:when>
+                <%-- 1페이지가 아닌 경우에는 이전을 클릭하면 현재 페이지보다 1작은페이지요청 --%>
+                <c:otherwise>
+                    <li class="page-item">
+                        <a class="page-link" href="/board/sale?page=${paging.page-1}&id=${id}">[이전]</a>
+                    </li>
+                </c:otherwise>
+            </c:choose>
+
+            <c:forEach begin="${paging.startPage}" end="${paging.endPage}" var="i" step="1">
+                <c:choose>
+                    <%-- 요청한 페이지에 있는 경우 페이지 ㅓ번호는 텍스므만 보이게 --%>
+                    <c:when test="${i eq paging.page}">
+                        <li class="page-item active">
+                            <a class="page-link">${i}</a>
+                        </li>
+                    </c:when>
+                    <c:otherwise>
+                        <li class="page-item">
+                            <a class="page-link" href="/board/sale?page=${i}&id=${id}">${i}</a>
+                        </li>
+                    </c:otherwise>
+                </c:choose>
+            </c:forEach>
+            <c:choose>
+                <c:when test="${paging.page>=paging.maxPage}">
+                    <li class="page-item disabled">
+                        <a class="page-link">[다음]</a>
                     </li>
                 </c:when>
                 <c:otherwise>
                     <li class="page-item">
-                        <a class="page-link" href="/board/sale?page=${i}&id=${id}">${i}</a>
+                        <a class="page-link" href="/board/sale?page=${paging.page+1}&id=${id}">[다음]</a>
                     </li>
                 </c:otherwise>
             </c:choose>
-        </c:forEach>
-        <c:choose>
-            <c:when test="${paging.page>=paging.maxPage}">
-                <li class="page-item disabled">
-                    <a class="page-link">[다음]</a>
-                </li>
-            </c:when>
-            <c:otherwise>
-                <li class="page-item">
-                    <a class="page-link" href="/board/sale?page=${paging.page+1}&id=${id}">[다음]</a>
-                </li>
-            </c:otherwise>
-        </c:choose>
-    </ul>
-</div>
+        </ul>
+    </div>
+</c:if>
 </body>
 </html>

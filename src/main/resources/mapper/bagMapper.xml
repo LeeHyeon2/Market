@@ -22,7 +22,7 @@
     </select>
 
     <select id="findList" parameterType="String" resultType="bag">
-        select * from market_bag where memberId = #{memberId}
+        select * from market_bag where memberId = #{memberId} order by id desc;
     </select>
 </mapper>
 

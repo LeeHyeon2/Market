@@ -29,6 +29,7 @@
             <th>우편번호</th>
             <th>주소</th>
             <th>상세주소</th>
+            <th>작성 글 갯수</th>
         </tr>
         <tr>
             <th>${member.memberId}</th>
@@ -37,6 +38,7 @@
             <th>${member.memberPost}</th>
             <th>${member.memberAddress1}</th>
             <th>${member.memberAddress2}</th>
+            <th>${boardDTO.size()}</th>
         </tr>
     </table>
     <table class="table">
@@ -53,7 +55,7 @@
             <th>조회수</th>
         </tr>
         <c:if test="${boardDTO.size() eq 0}">
-            <tr><td>등록된 글이 없습니다.</td></tr>
+            <tr><td colspan="7">등록된 글이 없습니다.</td></tr>
         </c:if>
         <c:forEach items="${boardDTO}" var="board">
                 <tr class="colored" onclick="location.href='/board/detail?id=${board.id}'">
