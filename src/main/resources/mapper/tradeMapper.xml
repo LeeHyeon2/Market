@@ -24,6 +24,10 @@
     <select id="myPage" parameterType="String" resultType="trade">
         select * from market_trade where saleMemberId = #{id} or buyMemberId = #{id}
     </select>
+
+    <select id="findAll" parameterType="String" resultType="trade">
+        select * from market_trade where saleMemberId = #{id} or buyMemberId = #{id}
+    </select>
 </mapper>
 
 

@@ -91,6 +91,7 @@
                 <th>카테고리</th>
                 <th>작성일자</th>
                 <th>조회수</th>
+                <th>거래확인</th>
             </tr>
             <c:forEach items="${boardDTO}" var="board">
                 <c:if test="${board.boardStatus eq '거래중'}">
@@ -101,6 +102,8 @@
                         <td>${board.boardCategory}</td>
                         <td>${board.boardDate}</td>
                         <td>${board.boardHits}</td>
+                        <td><input type="button" class="btn-primary" value="거래완료" onclick="event.cancelBubble=true;tradeSuccess(); location.href='/trade/success?id=${board.id}&sale=1'">
+                            <input type="button" class="btn-primary" value="거래취소" onclick="event.cancelBubble=true;tradeFail(); location.href='/trade/fail?id=${board.id}&sale=1'"></td>
                     </tr>
                 </c:if>
             </c:forEach>
@@ -162,4 +165,12 @@
     </div>
 </c:if>
 </body>
+<script>
+    const tradeSuccess = () =>{
+        alert("거래가 완료되었습니다!")
+    }
+    function tradeFail(){
+        alert("거래를 취소했습니다.")
+    }
+</script>
 </html>

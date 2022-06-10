@@ -185,22 +185,22 @@
             <div class="text">회원정보 수정/탈퇴</div>
             <div class="right"> > </div>
         </a>
-        <a href="#" class="item">
+        <a href="/trade/list?id=1" class="item">
             <div class="icon">ii</div>
             <div class="text">거래중</div>
             <div class="right"> > </div>
         </a>
-        <a href="#" class="item">
+        <a href="/trade/list?id=2" class="item">
             <div class="icon">ii</div>
             <div class="text">구매목록</div>
             <div class="right"> > </div>
         </a>
-        <a href="#" class="item">
+        <a href="/trade/list?id=3" class="item">
             <div class="icon">ii</div>
             <div class="text">판매목록</div>
             <div class="right"> > </div>
         </a>
-        <a href="#" class="item">
+        <a href="/trade/list?id=4" class="item">
             <div class="icon">ii</div>
             <div class="text">거래내역</div>
             <div class="right"> > </div>

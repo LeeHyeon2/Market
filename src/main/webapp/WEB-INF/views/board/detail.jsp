@@ -69,13 +69,13 @@
             </tr>
             <c:if test="${tradeDTO.saleMemberId eq sessionScope.loginMemberId}">
                 <tr>
-                <td colspan="8"><input type="button" value="거래완료" onclick="tradeSuccess(); location.href='/trade/success?id=${boardDTO.id}'">
-                <input type="button" value="거래취소" onclick="tradeFail(); location.href='/trade/fail?id=${boardDTO.id}'"></td>
+                <td colspan="8"><input type="button" value="거래완료" onclick="tradeSuccess(); location.href='/trade/success?id=${boardDTO.id}&sale=2'">
+                <input type="button" value="거래취소" onclick="tradeFail(); location.href='/trade/fail?id=${boardDTO.id}&sale=2'"></td>
                 </tr>
             </c:if>
             <c:if test="${tradeDTO.buyMemberId eq sessionScope.loginMemberId}">
                 <tr>
-                    <td><input type="button" value="거래취소" onclick="tradeFail(); location.href='/trade/fail?id=${boardDTO.id}'"></td>
+                    <td><input type="button" value="거래취소" onclick="tradeFail(); location.href='/trade/fail?id=${boardDTO.id}&sale=2'"></td>
                 </tr>
             </c:if>
 

@@ -34,4 +34,8 @@ public class TradeRepository {
     public List<TradeDTO> myPage(Object id) {
         return sql.selectList("Trade.myPage",id);
     }
+
+    public List<TradeDTO> findAll(Object id) {
+        return sql.selectList("Trade.findAll",id);
+    }
 }

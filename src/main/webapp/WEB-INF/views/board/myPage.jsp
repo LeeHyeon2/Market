@@ -167,7 +167,7 @@
                 <div class="item">
                 <div>
                     <div class="number">${selling}</div>
-                    <div class="text">거래중</div>
+                    <div class="text">판매요청</div>
                 </div>
                 <div class="icon">  </div>
             </div>
@@ -190,7 +190,7 @@
             </a>
             <a href="/board/sale?id=3" class="item">
                 <div class="icon">ii</div>
-                <div class="text">거래중 목록</div>
+                <div class="text">판매요청 목록</div>
                 <div class="right"> > </div>
             </a>
         </div>
