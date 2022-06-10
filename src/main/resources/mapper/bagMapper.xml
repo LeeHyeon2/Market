@@ -24,6 +24,10 @@
     <select id="findList" parameterType="String" resultType="bag">
         select * from market_bag where memberId = #{memberId} order by id desc;
     </select>
+
+    <delete id="success" parameterType="int">
+            delete from market_bag where boardId = #{id}
+    </delete>
 </mapper>
 
 

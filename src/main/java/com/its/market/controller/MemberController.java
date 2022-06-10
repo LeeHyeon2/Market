@@ -3,9 +3,11 @@ package com.its.market.controller;
 import com.its.market.dto.BoardDTO;
 import com.its.market.dto.MemberDTO;
 import com.its.market.dto.PageDTO;
+import com.its.market.dto.TradeDTO;
 import com.its.market.service.BagService;
 import com.its.market.service.BoardService;
 import com.its.market.service.MemberService;
+import com.its.market.service.TradeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -23,6 +25,8 @@ public class MemberController {
     public BoardService boardService;
     @Autowired
     public BagService bagService;
+    @Autowired
+    public TradeService tradeService;
 
     @GetMapping("/save")
     public String saveForm(){
@@ -80,7 +84,26 @@ public class MemberController {
 
     @GetMapping("/myPage")
     public String myPageForm(Model model , HttpSession session){
+        String id = (String) session.getAttribute("loginMemberId");
         int myBag = bagService.myBag(session.getAttribute("loginMemberId"));
+        List<TradeDTO> tradeDTOS = tradeService.myPage(session.getAttribute("loginMemberId"));
+        int trading = 0;
+        int buy = 0;
+        int sell = 0;
+        for (int i=0; i<tradeDTOS.size();i++){
+            if(tradeDTOS.get(i).getTradeStatus().equals("거래중")){
+                trading++;
+            }else {
+                if (tradeDTOS.get(i).getBuyMemberId().equals(id)){
+                    buy++;
+                }else {
+                    sell++;
+                }
+            }
+        }
+        model.addAttribute("trading",trading);
+        model.addAttribute("buy",buy);
+        model.addAttribute("sell",sell);
         model.addAttribute("myBag",myBag);
         return "/member/myPage";
     }

@@ -156,21 +156,21 @@
             </div>
             <div class="item">
                 <div>
-                    <div class="green number">ex</div>
+                    <div class="green number">${trading}</div>
                     <div class="text">거래중</div>
                 </div>
                 <div class="icon">  </div>
             </div>
             <div class="item">
                 <div>
-                    <div class="number">ex</div>
+                    <div class="number">${buy}</div>
                     <div class="text">구매완료</div>
                 </div>
                 <div class="icon">  </div>
             </div>
             <div class="item">
                 <div>
-                    <div class="green number">ex</div>
+                    <div class="green number">${sell}</div>
                     <div class="text">판매완료</div>
                 </div>
                 <div class="icon">  </div>

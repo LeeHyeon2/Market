@@ -5,6 +5,8 @@ import com.its.market.repository.TradeRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class TradeService {
     @Autowired
@@ -23,5 +25,9 @@ public class TradeService {
 
     public void fail(int id) {
         tradeRepository.fail(id);
+    }
+
+    public List<TradeDTO> myPage(Object loginMemberId) {
+        return tradeRepository.myPage(loginMemberId);
     }
 }

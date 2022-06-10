@@ -14,12 +14,16 @@
     </select>
 
     <update id="success" parameterType="int">
-        update market_trade set tradeStatus = "판매완료" where boardId = #{id}
+        update market_trade set tradeStatus = "거래완료" where boardId = #{id}
     </update>
 
     <delete id="fail" parameterType="int">
         delete from market_trade where boardId = #{id}
     </delete>
+
+    <select id="myPage" parameterType="String" resultType="trade">
+        select * from market_trade where saleMemberId = #{id} or buyMemberId = #{id}
+    </select>
 </mapper>
 
 

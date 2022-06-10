@@ -5,6 +5,8 @@ import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import java.util.List;
+
 @Repository
 public class TradeRepository {
     @Autowired
@@ -21,10 +23,15 @@ public class TradeRepository {
     public void success(int id) {
         sql.update("Trade.success",id);
         sql.update("Board.success",id);
+        sql.delete("Bag.success",id);
     }
 
     public void fail(int id) {
         sql.update("Trade.fail",id);
         sql.update("Board.fail",id);
+    }
+
+    public List<TradeDTO> myPage(Object id) {
+        return sql.selectList("Trade.myPage",id);
     }
 }
