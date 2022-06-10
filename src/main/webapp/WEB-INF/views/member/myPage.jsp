@@ -156,6 +156,13 @@
             </div>
             <div class="item">
                 <div>
+                    <div class="green number">ex</div>
+                    <div class="text">거래중</div>
+                </div>
+                <div class="icon">  </div>
+            </div>
+            <div class="item">
+                <div>
                     <div class="number">ex</div>
                     <div class="text">구매완료</div>
                 </div>
@@ -176,6 +183,11 @@
         <a href="/member/update" class="item">
             <div class="icon">ii</div>
             <div class="text">회원정보 수정/탈퇴</div>
+            <div class="right"> > </div>
+        </a>
+        <a href="#" class="item">
+            <div class="icon">ii</div>
+            <div class="text">거래중</div>
             <div class="right"> > </div>
         </a>
         <a href="#" class="item">

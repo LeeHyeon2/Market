@@ -1,11 +1,9 @@
 package com.its.market.controller;
 
-import com.its.market.dto.BagDTO;
-import com.its.market.dto.BoardDTO;
-import com.its.market.dto.MemberDTO;
-import com.its.market.dto.PageDTO;
+import com.its.market.dto.*;
 import com.its.market.service.BagService;
 import com.its.market.service.BoardService;
+import com.its.market.service.TradeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -22,6 +20,8 @@ public class BoardController {
     public BoardService boardService;
     @Autowired
     public BagService bagService;
+    @Autowired
+    public TradeService tradeService;
 
     @GetMapping("/myPage")
     public String myPageForm(Model model , HttpSession session){
@@ -83,6 +83,8 @@ public class BoardController {
         bagDTO.setMemberId((String) session.getAttribute("loginMemberId"));
         bagDTO.setBoardId(id);
         BagDTO bag = bagService.findById(bagDTO);
+        TradeDTO tradeDTO = tradeService.findById(id);
+        model.addAttribute("tradeDTO",tradeDTO);
         model.addAttribute("bag",bag);
         model.addAttribute("boardDTO",boardDTO);
         return "/board/detail";

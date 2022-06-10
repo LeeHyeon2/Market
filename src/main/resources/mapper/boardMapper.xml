@@ -53,6 +53,18 @@
     <select id="findByList" parameterType="String" resultType="board">
         select * from market_board where memberId = #{loginMemberId}
     </select>
+
+    <update id="trading" parameterType="int">
+        update market_board set boardStatus = "거래중" where id = #{boardId}
+    </update>
+
+    <update id="success" parameterType="int">
+        update market_board set boardStatus = "판매완료" where id = #{id}
+    </update>
+
+    <update id="fail" parameterType="int">
+        update market_board set boardStatus = "판매중" where id = #{id}
+    </update>
 </mapper>
 
 

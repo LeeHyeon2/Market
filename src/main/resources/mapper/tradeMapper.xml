@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+
+<mapper namespace="Trade">
+    <insert id="trade" parameterType="trade">
+        insert into market_trade (saleMemberId , buyMemberId , tradeStatus , tradeTime , boardId)
+            values (#{saleMemberId},#{buyMemberId},"거래중",now(),#{boardId})
+    </insert>
+
+    <select id="findById" parameterType="int" resultType="trade">
+        select * from market_trade where boardId = #{id}
+    </select>
+
+    <update id="success" parameterType="int">
+        update market_trade set tradeStatus = "판매완료" where boardId = #{id}
+    </update>
+
+    <delete id="fail" parameterType="int">
+        delete from market_trade where boardId = #{id}
+    </delete>
+</mapper>
+
+
+
+
+
+
+
+
+
+
+
+
+
+

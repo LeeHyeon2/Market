@@ -51,6 +51,7 @@
                     <option value="가전">가전</option>
                 </select></th>
             </form>
+            <th>거래상태</th>
             <th>작성일자</th>
             <th>조회수</th>
         </tr>
@@ -61,6 +62,7 @@
             <td><img src="${pageContext.request.contextPath}/upload/${board.boardProfile}" alt="" height="100" width="100"></td>
             <td>${board.boardTitle}</td>
             <td>${board.boardCategory}</td>
+            <td>${board.boardStatus}</td>
             <td>${board.boardDate}</td>
             <td>${board.boardHits}</td>
         </tr>

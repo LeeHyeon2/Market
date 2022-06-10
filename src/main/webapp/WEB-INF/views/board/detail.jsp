@@ -58,7 +58,28 @@
                 <td></td>
             </tr>
         </c:if>
+        <c:if test="${boardDTO.boardStatus eq '판매완료'}">
+            <tr>
+                <td colspan="8">판매완료된 물품입니다.</td>
+            </tr>
+        </c:if>
+        <c:if test="${boardDTO.boardStatus eq '거래중'}">
+            <tr>
+                <td colspan="8">거래중인 물품입니다.</td>
+            </tr>
+            <c:if test="${tradeDTO.saleMemberId eq sessionScope.loginMemberId}">
+                <tr>
+                <td colspan="8"><input type="button" value="거래완료" onclick="tradeSuccess(); location.href='/trade/success?id=${boardDTO.id}'">
+                <input type="button" value="거래취소" onclick="tradeFail(); location.href='/trade/fail?id=${boardDTO.id}'"></td>
+                </tr>
+            </c:if>
+            <c:if test="${tradeDTO.buyMemberId eq sessionScope.loginMemberId}">
+                <tr>
+                    <td><input type="button" value="거래취소" onclick="tradeFail(); location.href='/trade/fail?id=${boardDTO.id}'"></td>
+                </tr>
+            </c:if>
 
+        </c:if>
         <tr>
             <td>
                 <c:if test="${sessionScope.loginMemberId eq boardDTO.memberId}">
@@ -66,16 +87,20 @@
                     <input type="button" class="btn-primary" value="삭제" onclick="location.href = '/board/delete?id=${boardDTO.id}'">
                 </c:if>
                 <c:if test="${sessionScope.loginMemberId ne boardDTO.memberId}">
-                    <input type="button" class="btn-primary" value="구매신청">
-                    <c:if test="${bag eq null}">
-                        <input type="button" class="btn-primary" value="장바구니에 추가" onclick="bagUpdate();location.href = '/bag/update?memberId=${sessionScope.loginMemberId}&boardId=${boardDTO.id}'">
+                    <c:if test="${boardDTO.boardStatus ne '판매완료'}">
+                        <c:if test="${boardDTO.boardStatus eq '판매중'}">
+                            <input type="button" class="btn-primary" value="구매신청" onclick="buy();location.href='/trade/trade?saleMemberId=${boardDTO.memberId}&buyMemberId=${sessionScope.loginMemberId}&boardId=${boardDTO.id}'">
+                        </c:if>
+                        <c:if test="${bag eq null}">
+                            <input type="button" class="btn-primary" value="장바구니에 추가" onclick="bagUpdate();location.href = '/bag/update?memberId=${sessionScope.loginMemberId}&boardId=${boardDTO.id}'">
+                        </c:if>
+                        <c:if test="${bag ne null}">
+                            <input type="button" class="btn-primary" value="장바구니 삭제" onclick="bagDelete();location.href = '/bag/delete?memberId=${sessionScope.loginMemberId}&boardId=${boardDTO.id}&bag=1'" >
+                        </c:if>
                     </c:if>
-                    <c:if test="${bag ne null}">
-                        <input type="button" class="btn-primary" value="장바구니 삭제" onclick="bagDelete();location.href = '/bag/delete?memberId=${sessionScope.loginMemberId}&boardId=${boardDTO.id}&bag=1'" >
-                    </c:if>
-                    <c:if test="${sessionScope.loginMemberId eq 'admin'}">
-                        <input type="button" class="btn-primary" value="삭제" onclick="delete1()">
-                    </c:if>
+                        <c:if test="${sessionScope.loginMemberId eq 'admin'}">
+                            <input type="button" class="btn-primary" value="삭제" onclick="delete1()">
+                        </c:if>
                 </c:if>
             </td>
         </tr>
@@ -92,6 +117,15 @@
     }
     const bagDelete = () => {
         alert("장바구니에서 삭제되었습니다!!")
+    }
+    const buy = () => {
+        alert("구매신청 되었습니다!!")
+    }
+    const tradeSuccess = () =>{
+        alert("거래가 완료되었습니다!")
+    }
+    function tradeFail(){
+        alert("거래를 취소했습니다.")
     }
 </script>
 </html>
