@@ -175,4 +175,16 @@ public class BoardService {
     public BoardDTO findById1(int boardId) {
         return boardRepository.findById1(boardId);
     }
+
+
+    public List<BoardDTO> search(String search, String type) {
+        if (type.equals("전체")){
+            return boardRepository.searchAll(search);
+        }else{
+            Map<String,String> searchMap = new HashMap<>();
+            searchMap.put("type",type);
+            searchMap.put("search",search);
+            return boardRepository.search(searchMap);
+        }
+    }
 }

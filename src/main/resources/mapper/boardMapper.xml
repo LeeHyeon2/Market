@@ -65,6 +65,14 @@
     <update id="fail" parameterType="int">
         update market_board set boardStatus = "판매중" where id = #{id}
     </update>
+
+    <select id="searchAll" parameterType="String" resultType="board">
+        select * from market_board where boardTitle like concat('%',#{search},'%') or boardContents like concat('%',#{search},'%') or memberId like concat('%',#{search},'%') order by id desc;
+    </select>
+
+    <select id="search" parameterType="java.util.HashMap" resultType="board">
+        select * from market_board where ${type} like concat('%',#{search},'%') order by id desc;
+    </select>
 </mapper>
 
 

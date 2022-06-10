@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 
 @Controller
@@ -132,5 +133,29 @@ public class BoardController {
             model.addAttribute("paging",paging);
             return "/board/category";
         }
+    }
+
+    @GetMapping("/search")
+    public String search(@RequestParam("search") String search,
+                         @RequestParam("type") String type ,Model model){
+
+        List<BoardDTO> boardDTO = boardService.search(search,type);
+
+        model.addAttribute("search",search);
+        model.addAttribute("type",type);
+        model.addAttribute("boardDTO",boardDTO) ;
+        return "/board/search";
+    }
+
+    @PostMapping("/search")
+    public String search1(@RequestParam("search") String search,
+                         @RequestParam("type") String type ,Model model){
+
+        List<BoardDTO> boardDTO = boardService.search(search,type);
+
+        model.addAttribute("search",search);
+        model.addAttribute("type",type);
+        model.addAttribute("boardDTO",boardDTO) ;
+        return "/board/search";
     }
 }

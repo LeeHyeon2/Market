@@ -67,4 +67,12 @@ public class BoardRepository {
     public BoardDTO findById1(int boardId) {
         return sql.selectOne("Board.findById",boardId);
     }
+
+    public List<BoardDTO> searchAll(String search) {
+        return sql.selectList("Board.searchAll",search);
+    }
+
+    public List<BoardDTO> search(Map<String, String> searchMap) {
+        return sql.selectList("Board.search",searchMap);
+    }
 }

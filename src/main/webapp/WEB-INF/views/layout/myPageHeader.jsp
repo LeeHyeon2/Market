@@ -18,7 +18,6 @@
             <svg class="bi me-2" width="40" height="32"><use xlink:href="#bootstrap"/></svg>
             <span class="fs-4">마이페이지</span>
         </a>
-
     </header>
 </div>
 </body>

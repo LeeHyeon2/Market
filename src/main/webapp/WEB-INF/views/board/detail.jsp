@@ -7,6 +7,8 @@
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<link rel="stylesheet" href="/resources/css/bootstrap.min.css">
 <html>
 <head>
     <title>Title</title>
@@ -19,6 +21,9 @@
     <c:if test="${sessionScope.loginMemberId ne 'admin'}">
         <jsp:include page="../layout/loginHeader.jsp" flush="false"></jsp:include>
     </c:if>
+</c:if>
+<c:if test="${sessionScope.loginMemberId eq null}">
+    <jsp:include page="../layout/header.jsp" flush="false"></jsp:include>
 </c:if>
 
 <div class="container">
@@ -86,21 +91,26 @@
                     <input type="button" class="btn-primary" value="수정" onclick="location.href = '/board/update?id=${boardDTO.id}'">
                     <input type="button" class="btn-primary" value="삭제" onclick="location.href = '/board/delete?id=${boardDTO.id}'">
                 </c:if>
-                <c:if test="${sessionScope.loginMemberId ne boardDTO.memberId}">
-                    <c:if test="${boardDTO.boardStatus ne '판매완료'}">
-                        <c:if test="${boardDTO.boardStatus eq '판매중'}">
-                            <input type="button" class="btn-primary" value="구매신청" onclick="buy();location.href='/trade/trade?saleMemberId=${boardDTO.memberId}&buyMemberId=${sessionScope.loginMemberId}&boardId=${boardDTO.id}'">
+                <c:if test="${sessionScope.loginMemberId ne null}">
+                    <c:if test="${sessionScope.loginMemberId ne boardDTO.memberId}">
+                        <c:if test="${boardDTO.boardStatus ne '판매완료'}">
+                            <c:if test="${boardDTO.boardStatus eq '판매중'}">
+                                <input type="button" class="btn-primary" value="구매신청" onclick="buy();location.href='/trade/trade?saleMemberId=${boardDTO.memberId}&buyMemberId=${sessionScope.loginMemberId}&boardId=${boardDTO.id}'">
+                            </c:if>
+                            <c:if test="${bag eq null}">
+                                <input type="button" class="btn-primary" value="장바구니에 추가" onclick="bagUpdate();location.href = '/bag/update?memberId=${sessionScope.loginMemberId}&boardId=${boardDTO.id}'">
+                            </c:if>
+                            <c:if test="${bag ne null}">
+                                <input type="button" class="btn-primary" value="장바구니 삭제" onclick="bagDelete();location.href = '/bag/delete?memberId=${sessionScope.loginMemberId}&boardId=${boardDTO.id}&bag=1'" >
+                            </c:if>
                         </c:if>
-                        <c:if test="${bag eq null}">
-                            <input type="button" class="btn-primary" value="장바구니에 추가" onclick="bagUpdate();location.href = '/bag/update?memberId=${sessionScope.loginMemberId}&boardId=${boardDTO.id}'">
-                        </c:if>
-                        <c:if test="${bag ne null}">
-                            <input type="button" class="btn-primary" value="장바구니 삭제" onclick="bagDelete();location.href = '/bag/delete?memberId=${sessionScope.loginMemberId}&boardId=${boardDTO.id}&bag=1'" >
-                        </c:if>
+                            <c:if test="${sessionScope.loginMemberId eq 'admin'}">
+                                <input type="button" class="btn-primary" value="삭제" onclick="delete1()">
+                            </c:if>
                     </c:if>
-                        <c:if test="${sessionScope.loginMemberId eq 'admin'}">
-                            <input type="button" class="btn-primary" value="삭제" onclick="delete1()">
-                        </c:if>
+                </c:if>
+                <c:if test="${sessionScope.loginMemberId eq null}">
+                    <tr><td colspan="8">로그인이 필요한 서비스 입니다.</td></tr>
                 </c:if>
             </td>
         </tr>
