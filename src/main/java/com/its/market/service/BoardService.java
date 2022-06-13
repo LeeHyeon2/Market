@@ -187,4 +187,8 @@ public class BoardService {
             return boardRepository.search(searchMap);
         }
     }
+
+    public List<BoardDTO> findIndex() {
+        return boardRepository.findIndex();
+    }
 }

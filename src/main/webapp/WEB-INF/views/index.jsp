@@ -79,51 +79,51 @@
             <div class="col">
                 <div class="card mb-4 rounded-3 shadow-sm">
                     <div class="card-header py-3">
-                        <h4 class="my-0 fw-normal">Free</h4>
+                        <h4 class="my-0 fw-normal">1st</h4>
                     </div>
                     <div class="card-body">
-                        <h1 class="card-title pricing-card-title">$0<small class="text-muted fw-light">/mo</small></h1>
+                        <h1 class="card-title pricing-card-title"><img src="${pageContext.request.contextPath}/upload/${boardDTO.get(0).boardProfile}" alt="" height="100" width="100"></h1>
                         <ul class="list-unstyled mt-3 mb-4">
-                            <li>10 users included</li>
-                            <li>2 GB of storage</li>
-                            <li>Email support</li>
-                            <li>Help center access</li>
+                            <li>${boardDTO.get(0).boardTitle}</li>
+                            <li>${boardDTO.get(0).boardCategory}</li>
+                            <li>${boardDTO.get(0).boardPrice}(원)</li>
+                            <li>조회수 : ${boardDTO.get(0).boardHits}</li>
                         </ul>
-                        <button type="button" class="w-100 btn btn-lg btn-primary">Get started</button>
+                        <button type="button" class="w-100 btn btn-lg btn-primary" onclick="location.href = '/board/detail?id=${boardDTO.get(0).id}'">보러가기</button>
                     </div>
                 </div>
             </div>
             <div class="col">
                 <div class="card mb-4 rounded-3 shadow-sm">
                     <div class="card-header py-3">
-                        <h4 class="my-0 fw-normal">Pro</h4>
+                        <h4 class="my-0 fw-normal">2nd</h4>
                     </div>
                     <div class="card-body">
-                        <h1 class="card-title pricing-card-title">$15<small class="text-muted fw-light">/mo</small></h1>
+                        <h1 class="card-title pricing-card-title"><img src="${pageContext.request.contextPath}/upload/${boardDTO.get(1).boardProfile}" alt="" height="100" width="100"></h1>
                         <ul class="list-unstyled mt-3 mb-4">
-                            <li>20 users included</li>
-                            <li>10 GB of storage</li>
-                            <li>Priority email support</li>
-                            <li>Help center access</li>
+                            <li>${boardDTO.get(1).boardTitle}</li>
+                            <li>${boardDTO.get(1).boardCategory}</li>
+                            <li>${boardDTO.get(1).boardPrice}(원)</li>
+                            <li>조회수 : ${boardDTO.get(1).boardHits}</li>
                         </ul>
-                        <button type="button" class="w-100 btn btn-lg btn-primary">Get started</button>
+                        <button type="button" class="w-100 btn btn-lg btn-primary" onclick="location.href = '/board/detail?id=${boardDTO.get(1).id}'">보러가기</button>
                     </div>
                 </div>
             </div>
             <div class="col">
                 <div class="card mb-4 rounded-3 shadow-sm">
                     <div class="card-header py-3">
-                        <h4 class="my-0 fw-normal">Pro</h4>
+                        <h4 class="my-0 fw-normal">3rd</h4>
                     </div>
                     <div class="card-body">
-                        <h1 class="card-title pricing-card-title">$15<small class="text-muted fw-light">/mo</small></h1>
+                        <h1 class="card-title pricing-card-title"><img src="${pageContext.request.contextPath}/upload/${boardDTO.get(2).boardProfile}" alt="" height="100" width="100"></h1>
                         <ul class="list-unstyled mt-3 mb-4">
-                            <li>30 users included</li>
-                            <li>15 GB of storage</li>
-                            <li>Phone and email support</li>
-                            <li>Help center access</li>
+                            <li>${boardDTO.get(2).boardTitle}</li>
+                            <li>${boardDTO.get(2).boardCategory}</li>
+                            <li>${boardDTO.get(2).boardPrice}(원)</li>
+                            <li>조회수 : ${boardDTO.get(2).boardHits}</li>
                         </ul>
-                        <button type="button" class="w-100 btn btn-lg btn-primary">Contact us</button>
+                        <button type="button" class="w-100 btn btn-lg btn-primary" onclick="location.href = '/board/detail?id=${boardDTO.get(2).id}'">보러가기</button>
                     </div>
                 </div>
             </div>
@@ -132,7 +132,7 @@
     <footer class="pt-4 my-md-5 pt-md-5 border-top">
         <div class="row">
             <div class="col-12 col-md">
-                <small class="d-block mb-3 text-muted">© LeeHyeon</small>
+                <small class="d-block mb-3 text-muted">LeeHyeon</small>
             </div>
         </div>
     </footer>

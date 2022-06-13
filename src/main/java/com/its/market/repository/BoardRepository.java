@@ -75,4 +75,8 @@ public class BoardRepository {
     public List<BoardDTO> search(Map<String, String> searchMap) {
         return sql.selectList("Board.search",searchMap);
     }
+
+    public List<BoardDTO> findIndex() {
+        return sql.selectList("Board.findIndex");
+    }
 }

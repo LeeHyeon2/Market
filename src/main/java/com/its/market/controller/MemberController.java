@@ -47,13 +47,15 @@ public class MemberController {
     }
 
     @GetMapping("/login")
-    public String loginForm(){
+    public String loginForm(Model model){
         return "/member/login";
     }
 
     @PostMapping("/login")
     public String login(@ModelAttribute MemberDTO memberDTO, Model model , HttpSession session){
         MemberDTO login = memberService.login(memberDTO);
+        List<BoardDTO> boardDTOList = boardService.findIndex();
+        model.addAttribute("boardDTO",boardDTOList);
         if(login != null){
             if(login.getMemberId().equals("admin")){
                 model.addAttribute("login", login);

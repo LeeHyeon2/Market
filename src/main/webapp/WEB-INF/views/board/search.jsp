@@ -41,7 +41,7 @@
                     <select name="type" id="type" onchange="type1()">
                         <option value="">선택</option>
                             <option value="전체">전체</option>
-                            <option value="memberId">작성자</option>
+                            <option value="memberId">판매자</option>
                             <option value="boardTitle">제목</option>
                             <option value="boardContents">내용</option>
                     </select>

@@ -73,8 +73,11 @@
     <select id="search" parameterType="java.util.HashMap" resultType="board">
         select * from market_board where ${type} like concat('%',#{search},'%') order by id desc;
     </select>
-</mapper>
 
+    <select id="findIndex" resultType="board">
+        select * from market_board where boardStatus = "판매중" order by boardHits desc
+    </select>
+</mapper>
 
 
 
