@@ -103,7 +103,8 @@
                         <td>${board.boardDate}</td>
                         <td>${board.boardHits}</td>
                         <td><input type="button" class="btn-primary" value="거래완료" onclick="event.cancelBubble=true;tradeSuccess(); location.href='/trade/success?id=${board.id}&sale=1'">
-                            <input type="button" class="btn-primary" value="거래취소" onclick="event.cancelBubble=true;tradeFail(); location.href='/trade/fail?id=${board.id}&sale=1'"></td>
+                            <input type="button" class="btn-primary" value="거래취소" onclick="event.cancelBubble=true;tradeFail(); location.href='/trade/fail?id=${board.id}&sale=1'">
+                            <input type="button" value="채팅" onclick="event.cancelBubble=true;bchat(${board.id})"></td>
                     </tr>
                 </c:if>
             </c:forEach>
@@ -172,5 +173,12 @@
     function tradeFail(){
         alert("거래를 취소했습니다.")
     }
+    function chat(boardId){
+        let popUrl = "/chat/start?id="+ boardId ;
+        let popOption = "width = 650px, height=800px, top=300px, left=300px, scrollbars=yes";
+
+        window.open(popUrl,"test",popOption);
+    }
+
 </script>
 </html>

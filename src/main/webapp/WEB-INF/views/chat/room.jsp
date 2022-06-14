@@ -16,7 +16,7 @@
 </head>
 
 <body>
-<input type="text" id="contents" name="contents" placeholder="채팅입력"><input type="button" value="보내기" onclick="chat()">
+<input type="text" id="contents" name="contents" placeholder="채팅입력"><input type="submit" value="보내기" onclick="chat()">
 
 <div id="comment-list"></div>
 
@@ -47,15 +47,11 @@
         type: "get",
         dataType : "json",
         success: function (result){
-          console.log("테스트");
-
           let output = "<table class='table'>";
           output += "<tr><th>아이디</th>";
           output += "<th>내용</th>";
           output += "<th>작성시간</th></tr>";
-          <c:if test="result eq null">
-          output += "<tr><th>채팅기록이 없습니다.</th><tr>";
-          </c:if>
+
           for(let i in result){
             output += "<tr>";
             output += "<td>"+result[i].memberId+"</td>";
@@ -73,5 +69,6 @@
     }, 1000);
 
   }
+
 </script>
 </html>
