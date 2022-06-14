@@ -155,9 +155,9 @@ public class MemberController {
     }
 
     @GetMapping("/test")
-    public @ResponseBody List<MemberDTO> test() {
+    public @ResponseBody List<MemberDTO> test(@RequestParam("id") int id) {
+        System.out.println("id = " + id);
         List<MemberDTO> memberDTOList = memberService.findAll(1);
-        System.out.println("memberDTOList = " + memberDTOList);
         return memberDTOList;
     }
 }

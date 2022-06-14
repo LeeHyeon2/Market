@@ -22,7 +22,8 @@ public class HomeController {
     }
 
     @GetMapping("/test")
-    public String test(){
+    public String test(Model model){
+        model.addAttribute("test",1);
         return "/test";
     }
 }

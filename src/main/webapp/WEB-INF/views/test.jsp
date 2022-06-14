@@ -27,6 +27,8 @@
     </tr>
 </table>
 
+<div id="comment-list">
+</div>
 <div><input type="button" onclick="request()" class="btn btn-default" value="클릭" /></div>
 
 </body>
@@ -35,13 +37,33 @@
 
         timer = setInterval( function () {
             $.ajax({
-                url: "member/test",
+                url: "member/test?id=" + '${test}',
                 type: "get",
                 dataType : "json",
                 success: function (result){
                     console.log(result);
                     console.log(result[0].id);
                     console.log(result[1].id);
+
+                    let output = "<table class='table'>";
+                    output += "<tr><th>댓글번호</th>";
+                    output += "<th>작성자</th>";
+                    output += "<th>내용</th>";
+                    output += "<th>작성시간</th>";
+                    output += "<th>test</th></tr>";
+                    for(let i in result){
+                        output += "<tr>";
+                        output += "<td>"+result[i].id+"</td>";
+                        output += "<td>"+result[i].memberId+"</td>";
+                        output += "<td>"+result[i].memberName+"</td>";
+                        output += "<td>"+result[i].memberPassword+"</td>";
+                        output += "<td>"+result[i].memberAddress2+"</td>";
+                        output += "</tr>";
+                    }
+                    output += "</table>";
+                    document.getElementById('comment-list').innerHTML = output;
+
+
                 }
             })
 

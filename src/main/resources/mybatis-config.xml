@@ -8,5 +8,6 @@
         <typeAlias type="com.its.market.dto.BagDTO" alias="bag"></typeAlias>
         <typeAlias type="com.its.market.dto.PageDTO" alias="page"></typeAlias>
         <typeAlias type="com.its.market.dto.TradeDTO" alias="trade"></typeAlias>
+        <typeAlias type="com.its.market.dto.ChatDTO" alias="chat"></typeAlias>
     </typeAliases>
 </configuration>

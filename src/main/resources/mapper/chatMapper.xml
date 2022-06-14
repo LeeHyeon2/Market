@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+
+<mapper namespace="Chat">
+    <select id="findById" parameterType="int" resultType="chat">
+        select * from market_chat where boardId = #{id} order by id desc;
+    </select>
+
+    <insert id="save" parameterType="chat">
+        insert into market_chat (boardId,memberId,contents,chatTime)
+            values (#{boardId},#{memberId},#{contents},now())
+    </insert>
+</mapper>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
