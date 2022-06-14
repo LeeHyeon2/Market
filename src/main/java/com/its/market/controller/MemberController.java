@@ -153,4 +153,11 @@ public class MemberController {
         model.addAttribute("member",memberDTO);
         return "/member/detail";
     }
+
+    @GetMapping("/test")
+    public @ResponseBody List<MemberDTO> test() {
+        List<MemberDTO> memberDTOList = memberService.findAll(1);
+        System.out.println("memberDTOList = " + memberDTOList);
+        return memberDTOList;
+    }
 }
