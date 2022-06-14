@@ -32,16 +32,21 @@
 </body>
 <script>
     function request(){
-        $.ajax({
-            url: "member/test",
-            type: "get",
-            dataType : "json",
-            success: function (result){
-                console.log(result);
-                console.log(result[0].id);
-                console.log(result[1].id);
-            }
-        })
+
+        timer = setInterval( function () {
+            $.ajax({
+                url: "member/test",
+                type: "get",
+                dataType : "json",
+                success: function (result){
+                    console.log(result);
+                    console.log(result[0].id);
+                    console.log(result[1].id);
+                }
+            })
+
+        }, 1000);
+
     }
 </script>
 </html>
