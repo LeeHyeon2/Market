@@ -104,7 +104,7 @@
                         <td>${board.boardHits}</td>
                         <td><input type="button" class="btn-primary" value="거래완료" onclick="event.cancelBubble=true;tradeSuccess(); location.href='/trade/success?id=${board.id}&sale=1'">
                             <input type="button" class="btn-primary" value="거래취소" onclick="event.cancelBubble=true;tradeFail(); location.href='/trade/fail?id=${board.id}&sale=1'">
-                            <input type="button" value="채팅" onclick="event.cancelBubble=true;bchat(${board.id})"></td>
+                            <input type="button" value="채팅" onclick="event.cancelBubble=true;chat(${board.id})"></td>
                     </tr>
                 </c:if>
             </c:forEach>
