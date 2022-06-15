@@ -137,14 +137,5 @@
         </div>
     </footer>
 </div>
-<button onclick="test1()">123123123</button>
 </body>
-<script>
-    function test1(){
-        let popUrl = "/test";
-        let popOption = "width = 650px, height=800px, top=300px, left=300px, scrollbars=yes";
-
-        window.open(popUrl,"test",popOption);
-    }
-</script>
 </html>

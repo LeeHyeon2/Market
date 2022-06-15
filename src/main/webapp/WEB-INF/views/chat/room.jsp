@@ -13,12 +13,15 @@
   <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
   <link rel="stylesheet" href="/resources/css/bootstrap.min.css">
   <title>chat</title>
+
 </head>
 
 <body>
-<input type="text" id="contents" name="contents" placeholder="채팅입력"><input type="submit" value="보내기" onclick="chat()">
-
-<div id="comment-list"></div>
+<div class="container">
+  <div><input class="form-control" type="text" id="contents" name="contents" 입력하세요 onkeydown="javascript:if(event.keyCode==13)chat()" placeholder="채팅입력">
+  <input class="btn btn-primary" type="submit" value="보내기" onclick="chat()"></div>
+</div>
+<div class="container" id="comment-list" style="overflow:scroll; height:700px;"></div>
 
 </body>
 <script>
@@ -48,16 +51,22 @@
         dataType : "json",
         success: function (result){
           let output = "<table class='table'>";
-          output += "<tr><th>아이디</th>";
-          output += "<th>내용</th>";
-          output += "<th>작성시간</th></tr>";
+          output += "<tr colspan = '3'><th>채팅내역</th></tr>";
 
           for(let i in result){
-            output += "<tr>";
-            output += "<td>"+result[i].memberId+"</td>";
-            output += "<td>"+result[i].contents+"</td>";
-            output += "<td>"+result[i].chatTime+"</td>";
-            output += "</tr>";
+            if (result[i].memberId == '${sessionScope.loginMemberId}'){
+              output += "<tr style='background-color:yellow'>";
+              output += "<td>"+result[i].memberId+"</td>";
+              output += "<td>"+result[i].contents+"</td>";
+              output += "<td>"+result[i].chatTime+"</td>";
+              output += "</tr>";
+            }else{
+              output += "<tr style='background-color:#dfc2c4'>";
+              output += "<td>"+result[i].memberId+"</td>";
+              output += "<td>"+result[i].contents+"</td>";
+              output += "<td>"+result[i].chatTime+"</td>";
+              output += "</tr>";
+            }
           }
           output += "</table>";
           document.getElementById('comment-list').innerHTML = output;
@@ -65,10 +74,7 @@
 
         }
       })
-
     }, 1000);
-
   }
-
 </script>
 </html>

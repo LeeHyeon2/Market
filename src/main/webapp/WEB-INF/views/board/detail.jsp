@@ -141,7 +141,7 @@
     }
     function chat(){
         let popUrl = "/chat/start?id="+"${boardDTO.id}";
-        let popOption = "width = 650px, height=800px, top=300px, left=300px, scrollbars=yes";
+        let popOption = "width = 650px, height=700px, top=300px, left=300px, scrollbars=yes";
 
         window.open(popUrl,"test",popOption);
     }
